@@ -26,6 +26,52 @@
   --font-body: 'DM Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
+
+/* ===== LIGHT MODE ===== */
+[data-theme="light"] {
+  --bg: #f4f6fb;
+  --bg2: #eaeef7;
+  --surface: #ffffff;
+  --surface2: #f0f4fc;
+  --accent: #0077cc;
+  --accent2: #6b3fd4;
+  --accent3: #d4006a;
+  --white: #0d1526;
+  --muted: #5a6a8a;
+  --border: rgba(0,100,200,0.14);
+  --glow: rgba(0,119,204,0.15);
+}
+[data-theme="light"] body::before { opacity: 0.15; }
+[data-theme="light"] .hero-grid-bg {
+  background-image:
+    linear-gradient(rgba(0,100,200,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,100,200,0.07) 1px, transparent 1px);
+}
+[data-theme="light"] .scanline { display: none; }
+[data-theme="light"] #cursor { background: var(--accent); }
+[data-theme="light"] #cursor-ring { border-color: var(--accent); }
+
+/* ===== THEME TOGGLE BUTTON ===== */
+#theme-toggle {
+  width: 38px; height: 22px; border-radius: 11px;
+  background: var(--surface2); border: 1px solid var(--border);
+  cursor: none; position: relative; transition: background .3s;
+  flex-shrink: 0;
+}
+#theme-toggle::after {
+  content: ''; position: absolute; top: 3px; left: 3px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent); transition: transform .3s, background .3s;
+}
+[data-theme="light"] #theme-toggle::after {
+  transform: translateX(16px);
+}
+.toggle-wrap {
+  display: flex; align-items: center; gap: 8px;
+}
+.toggle-icon {
+  font-size: 14px; line-height: 1; user-select: none;
+}
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-body);
@@ -461,6 +507,10 @@ footer {
     <a href="#contact">Contact</a>
   </div>
   <a href="#contact" class="nav-cta">Get a Demo →</a>
+  <div class="toggle-wrap">
+    <span class="toggle-icon" id="toggle-icon">🌙</span>
+    <button id="theme-toggle" aria-label="Toggle light/dark mode"></button>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -784,6 +834,30 @@ window.addEventListener('scroll', () => {
 });
 
 /* ============================================================
+   THEME TOGGLE
+============================================================ */
+(function(){
+  const btn = document.getElementById('theme-toggle');
+  const icon = document.getElementById('toggle-icon');
+  const root = document.documentElement;
+
+  function applyTheme(theme){
+    root.setAttribute('data-theme', theme);
+    icon.textContent = theme === 'light' ? '☀️' : '🌙';
+    localStorage.setItem('bwl-theme', theme);
+  }
+
+  // Restore saved preference
+  const saved = localStorage.getItem('bwl-theme') || 'dark';
+  applyTheme(saved);
+
+  btn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+    applyTheme(next);
+  });
+})();
+
+/* ============================================================
    PARTICLE CANVAS — HERO
 ============================================================ */
 (function(){
@@ -793,7 +867,9 @@ window.addEventListener('scroll', () => {
   let W, H, particles = [], mouse = { x: -9999, y: -9999 };
 
   // Node colour palette
-  const PALETTE = [186, 270, 330, 30, 160]; // cyan, purple, pink, orange, green
+  const PALETTE_DARK  = [186, 270, 330, 30, 160];
+  const PALETTE_LIGHT = [210, 260, 340, 20, 170];
+  function getPalette(){ return document.documentElement.getAttribute('data-theme') === 'light' ? PALETTE_LIGHT : PALETTE_DARK; }
 
   function resize(){
     W = canvas.width = hero.offsetWidth;
@@ -808,7 +884,8 @@ window.addEventListener('scroll', () => {
   });
 
   function makeParticle(){
-    const hue = PALETTE[Math.floor(Math.random() * PALETTE.length)];
+    const palette = getPalette();
+    const hue = palette[Math.floor(Math.random() * palette.length)];
     return {
       x: Math.random() * W,
       y: Math.random() * H,
@@ -868,9 +945,11 @@ window.addEventListener('scroll', () => {
           const lineAlpha = (0.08 + boost * 0.35) * fade;
 
           // gradient line blending both node colours
+          const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+          const connLum = isLight ? '40%' : '65%';
           const grad = ctx.createLinearGradient(p.x, p.y, q.x, q.y);
-          grad.addColorStop(0, `hsla(${p.hue},100%,65%,${lineAlpha})`);
-          grad.addColorStop(1, `hsla(${q.hue},100%,65%,${lineAlpha})`);
+          grad.addColorStop(0, `hsla(${p.hue},100%,${connLum},${lineAlpha})`);
+          grad.addColorStop(1, `hsla(${q.hue},100%,${connLum},${lineAlpha})`);
 
           ctx.beginPath();
           ctx.strokeStyle = grad;
@@ -884,11 +963,15 @@ window.addEventListener('scroll', () => {
 
     // Draw nodes
     particles.forEach(p => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      const lum = isLight ? '45%' : '72%';
+      const connLum = isLight ? '40%' : '65%';
+
       // outer glow when active
       if(p.activeFactor > 0.05){
         const grd = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 5);
-        grd.addColorStop(0, `hsla(${p.hue},100%,70%,${p.activeFactor * 0.25})`);
-        grd.addColorStop(1, `hsla(${p.hue},100%,70%,0)`);
+        grd.addColorStop(0, `hsla(${p.hue},100%,${lum},${p.activeFactor * 0.22})`);
+        grd.addColorStop(1, `hsla(${p.hue},100%,${lum},0)`);
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r * 5, 0, Math.PI * 2);
         ctx.fillStyle = grd;
@@ -898,7 +981,7 @@ window.addEventListener('scroll', () => {
       // core dot
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `hsla(${p.hue},100%,72%,${p.alpha})`;
+      ctx.fillStyle = `hsla(${p.hue},100%,${lum},${p.alpha})`;
       ctx.fill();
     });
 
