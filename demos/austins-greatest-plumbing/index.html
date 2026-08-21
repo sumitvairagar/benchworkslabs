@@ -6,205 +6,322 @@
 <title>Austin's Greatest Plumbing — Instant Estimate & Booking</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#050810;
-  --bg2:#080d1a;
-  --surface:#0d1526;
-  --surface2:#111d35;
-  --accent:#00f0ff;
-  --accent2:#7b5cf0;
-  --copper:#e8834a;
-  --copper-dim:#b5622e;
-  --white:#f0f4ff;
-  --muted:#5a6a8a;
-  --border:rgba(0,240,255,0.12);
+  --ink:#1a1410;
+  --ink-soft:#4a3f35;
+  --copper:#c07a3a;
+  --copper-bright:#d98c48;
+  --copper-dim:#e8d5bf;
+  --cream:#faf7f2;
+  --cream2:#f2ece2;
+  --white:#ffffff;
+  --muted:#8a7d70;
+  --border:#e2d8cc;
+  --charcoal:#1e2329;
+  --charcoal-soft:#252c34;
   --font-head:'Bebas Neue',sans-serif;
   --font-body:'DM Sans',sans-serif;
-  --font-mono:'JetBrains Mono',monospace;
 }
 html{scroll-behavior:smooth;}
-body{font-family:var(--font-body);background:var(--bg);color:var(--white);overflow-x:hidden;cursor:none;}
-::selection{background:var(--accent);color:var(--bg);}
-
-/* CURSOR */
-#cur{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen;}
-#cur-r{position:fixed;width:32px;height:32px;border:1px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s;opacity:.5;}
+body{font-family:var(--font-body);background:var(--cream);color:var(--ink);line-height:1.6;}
 
 /* NAV */
-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 5vw;background:rgba(5,8,16,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
-.brand{display:flex;align-items:center;gap:12px;}
-.brand-hex{width:32px;height:32px;background:linear-gradient(135deg,var(--copper),var(--accent2));clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);}
-.brand-name{font-family:var(--font-head);font-size:20px;letter-spacing:0.04em;line-height:1;}
-.brand-sub{font-family:var(--font-mono);font-size:9px;color:var(--muted);letter-spacing:0.12em;}
-.call-btn{font-family:var(--font-mono);font-size:12px;padding:10px 22px;background:var(--copper);color:var(--bg);letter-spacing:0.06em;text-decoration:none;cursor:none;transition:box-shadow .2s,transform .2s;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));}
-.call-btn:hover{box-shadow:0 0 28px rgba(232,131,74,0.45);transform:translateY(-2px);}
-.demo-badge{font-family:var(--font-mono);font-size:9px;letter-spacing:0.14em;color:var(--copper);border:1px solid var(--copper-dim);padding:4px 10px;text-transform:uppercase;}
+nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 5vw;
+  background:var(--charcoal);
+  border-bottom:3px solid var(--copper);
+}
+.brand{display:flex;align-items:center;gap:14px;}
+.brand-icon{
+  width:36px;height:36px;background:var(--copper);
+  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  flex-shrink:0;
+}
+.brand-name{font-family:var(--font-head);font-size:20px;letter-spacing:0.05em;color:#fff;line-height:1.1;}
+.brand-addr{font-size:11px;color:#8a9aaa;letter-spacing:0.04em;margin-top:1px;}
+.call-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 24px;background:var(--copper);color:#fff;
+  font-family:var(--font-head);font-size:16px;letter-spacing:0.06em;
+  text-decoration:none;transition:background .2s;
+}
+.call-btn:hover{background:var(--copper-bright);}
+.call-btn svg{flex-shrink:0;}
 
 /* HERO */
-#hero{position:relative;min-height:100vh;display:grid;grid-template-columns:1fr 1fr;gap:0;overflow:hidden;}
-#hero-canvas{position:absolute;inset:0;z-index:0;}
-.hero-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(0,240,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,0.03) 1px,transparent 1px);background-size:55px 55px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%);}
-.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:80px 5vw 80px 5vw;}
-.hero-right{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:80px 5vw 80px 2vw;}
-.eyebrow{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
-.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--accent);}
-.hero-h1{font-family:var(--font-head);font-size:clamp(52px,6vw,84px);line-height:.95;letter-spacing:0.03em;margin-bottom:20px;}
-.hero-h1 span{color:var(--copper);}
-.hero-sub{font-size:16px;color:var(--muted);line-height:1.7;font-weight:300;max-width:42ch;margin-bottom:32px;}
-.trust-row{display:flex;gap:32px;flex-wrap:wrap;}
-.trust-item{display:flex;flex-direction:column;gap:2px;}
-.trust-num{font-family:var(--font-head);font-size:28px;letter-spacing:0.04em;color:var(--white);}
-.trust-num span{color:var(--copper);}
-.trust-label{font-family:var(--font-mono);font-size:9px;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;}
+#hero{
+  background:var(--charcoal);
+  padding:60px 5vw 0;
+  overflow:hidden;
+}
+.hero-inner{
+  max-width:1160px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;
+}
+.hero-eyebrow{
+  font-size:12px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--copper);margin-bottom:16px;
+}
+.hero-h1{
+  font-family:var(--font-head);
+  font-size:clamp(48px,5.5vw,76px);
+  letter-spacing:0.03em;line-height:.95;
+  color:#fff;margin-bottom:20px;
+}
+.hero-h1 em{color:var(--copper);font-style:normal;}
+.hero-sub{
+  font-size:16px;color:#8a9aaa;
+  line-height:1.7;font-weight:300;
+  max-width:42ch;margin-bottom:32px;
+}
+.trust-row{display:flex;gap:36px;flex-wrap:wrap;padding-bottom:48px;}
+.trust-item{}
+.trust-num{
+  font-family:var(--font-head);font-size:34px;
+  letter-spacing:0.04em;color:#fff;line-height:1;
+}
+.trust-num em{color:var(--copper);font-style:normal;}
+.trust-label{font-size:11px;color:#6a7a8a;letter-spacing:0.06em;margin-top:2px;}
 
-/* ESTIMATE PANEL */
-.estimate-panel{background:var(--surface);border:1px solid var(--border);padding:32px;position:relative;overflow:hidden;}
-.estimate-panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--copper),var(--accent));}
-.panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid var(--border);}
-.panel-title{font-family:var(--font-head);font-size:22px;letter-spacing:0.06em;}
-.panel-id{font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:0.1em;}
-.field{margin-bottom:22px;}
-.field-label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+/* ESTIMATE CARD */
+.estimate-card{
+  background:var(--white);
+  box-shadow:0 -8px 60px rgba(0,0,0,0.3);
+  padding:32px;
+  position:relative;
+  top:0;
+}
+.card-head{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-bottom:20px;margin-bottom:24px;
+  border-bottom:2px solid var(--border);
+}
+.card-title{font-family:var(--font-head);font-size:22px;letter-spacing:0.05em;color:var(--ink);}
+.card-id{font-size:11px;color:var(--muted);letter-spacing:0.1em;}
+
+.field{margin-bottom:20px;}
+.field-label{
+  font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:10px;font-weight:500;
+}
 .chip-row{display:flex;gap:8px;flex-wrap:wrap;}
-.chip{font-family:var(--font-mono);font-size:11px;padding:8px 14px;background:transparent;border:1px solid var(--border);color:var(--muted);cursor:none;transition:all .15s;letter-spacing:0.06em;}
-.chip:hover{border-color:var(--accent);color:var(--white);}
-.chip.active{background:rgba(0,240,255,0.1);border-color:var(--accent);color:var(--accent);}
-.range-wrap{position:relative;padding:8px 0;}
-input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:2px;background:var(--border);outline:none;}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--accent);cursor:none;box-shadow:0 0 12px rgba(0,240,255,0.4);}
-.range-labels{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:9px;color:var(--muted);letter-spacing:0.1em;margin-top:6px;}
-.breakdown{margin:20px 0;border:1px solid var(--border);}
-.b-row{display:flex;justify-content:space-between;padding:9px 14px;font-family:var(--font-mono);font-size:12px;border-bottom:1px solid var(--border);}
-.b-row:last-child{border-bottom:none;}
-.b-row span:first-child{color:var(--muted);}
-.b-row span:last-child{color:var(--white);}
-.result-box{background:var(--bg);border:1px solid rgba(232,131,74,0.3);padding:20px;text-align:center;margin-bottom:16px;position:relative;overflow:hidden;}
-.result-box::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,131,74,0.06),rgba(123,92,240,0.06));pointer-events:none;}
-.result-range{font-family:var(--font-head);font-size:42px;letter-spacing:0.04em;color:var(--copper);}
-.result-label{font-family:var(--font-mono);font-size:9px;color:var(--muted);letter-spacing:0.14em;margin-top:4px;}
-.book-btn{width:100%;padding:16px;background:var(--copper);color:var(--bg);font-family:var(--font-head);font-size:18px;letter-spacing:0.08em;border:none;cursor:none;transition:box-shadow .2s,transform .2s;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));}
-.book-btn:hover{box-shadow:0 0 32px rgba(232,131,74,0.4);transform:translateY(-2px);}
+.chip{
+  font-size:13px;padding:9px 16px;
+  background:var(--cream);border:1.5px solid var(--border);
+  color:var(--ink-soft);cursor:pointer;
+  transition:all .15s;font-family:var(--font-body);font-weight:400;
+}
+.chip:hover{border-color:var(--copper);color:var(--copper);}
+.chip.active{background:var(--charcoal);border-color:var(--charcoal);color:#fff;}
 
-/* STEPS */
-#how{padding:100px 5vw;background:var(--bg2);}
-.section-tag{font-family:var(--font-mono);font-size:10px;letter-spacing:0.2em;color:var(--accent);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
-.section-tag::before{content:'';display:block;width:20px;height:1px;background:var(--accent);}
-.section-h2{font-family:var(--font-head);font-size:clamp(36px,4vw,58px);letter-spacing:0.03em;line-height:1;margin-bottom:56px;}
+input[type=range]{
+  width:100%;height:4px;
+  -webkit-appearance:none;appearance:none;
+  background:var(--border);outline:none;border-radius:2px;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:18px;height:18px;
+  border-radius:50%;background:var(--copper);cursor:pointer;
+  box-shadow:0 2px 8px rgba(192,122,58,0.4);
+}
+.range-labels{
+  display:flex;justify-content:space-between;
+  font-size:10px;color:var(--muted);letter-spacing:0.08em;
+  margin-top:6px;text-transform:uppercase;
+}
+
+.breakdown{
+  border:1.5px solid var(--border);
+  margin:20px 0;
+}
+.b-row{
+  display:flex;justify-content:space-between;
+  padding:9px 14px;font-size:13px;
+  border-bottom:1px solid var(--border);
+  color:var(--ink-soft);
+}
+.b-row:last-child{border-bottom:none;}
+.b-row span:last-child{font-weight:500;color:var(--ink);}
+
+.result-box{
+  background:var(--charcoal);
+  padding:20px;text-align:center;margin-bottom:14px;
+}
+.result-range{
+  font-family:var(--font-head);font-size:44px;
+  letter-spacing:0.04em;color:var(--copper);
+  transition:opacity .3s,transform .3s;
+}
+.result-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#6a7a8a;margin-top:4px;}
+
+.book-btn{
+  width:100%;padding:16px;
+  background:var(--copper);color:#fff;border:none;
+  font-family:var(--font-head);font-size:20px;letter-spacing:0.08em;
+  cursor:pointer;transition:background .2s,transform .2s;
+}
+.book-btn:hover{background:var(--copper-bright);transform:translateY(-1px);}
+
+/* HOW IT WORKS */
+#how{padding:88px 5vw;background:var(--cream2);}
+.section-label{
+  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--copper);margin-bottom:12px;font-weight:500;
+}
+.section-h2{
+  font-family:var(--font-head);font-size:clamp(34px,4vw,52px);
+  letter-spacing:0.03em;line-height:1;margin-bottom:48px;
+}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.step{background:var(--surface);padding:36px 28px;border:1px solid transparent;transition:border-color .3s,transform .3s;position:relative;overflow:hidden;}
-.step::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--copper),var(--accent));transform:scaleX(0);transform-origin:left;transition:transform .4s;}
-.step:hover::before{transform:scaleX(1);}
-.step:hover{border-color:var(--border);transform:translateY(-4px);}
-.step-num{font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:0.16em;margin-bottom:16px;}
-.step-title{font-family:var(--font-head);font-size:24px;letter-spacing:0.04em;margin-bottom:12px;}
-.step-desc{font-size:14px;color:var(--muted);line-height:1.75;font-weight:300;}
+.step{
+  background:var(--white);padding:32px 28px;
+  border-top:3px solid transparent;
+  transition:border-color .25s,transform .25s;
+}
+.step:hover{border-color:var(--copper);transform:translateY(-3px);}
+.step-num{font-size:11px;letter-spacing:0.16em;color:var(--copper);margin-bottom:14px;font-weight:500;}
+.step-title{font-family:var(--font-head);font-size:24px;letter-spacing:0.04em;margin-bottom:10px;}
+.step-desc{font-size:14px;color:var(--ink-soft);line-height:1.75;font-weight:300;}
 
 /* GALLERY */
-#gallery{padding:100px 5vw;background:var(--bg);}
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:48px;}
-.job-card{aspect-ratio:4/5;background:var(--surface);border:1px solid var(--border);position:relative;overflow:hidden;transition:border-color .3s,transform .3s;cursor:none;}
-.job-card:hover{border-color:rgba(232,131,74,0.4);transform:translateY(-4px);}
-.job-card canvas{position:absolute;inset:0;width:100%;height:100%;}
-.job-tag{position:absolute;bottom:12px;left:12px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.12em;text-transform:uppercase;background:var(--copper);color:var(--bg);padding:4px 10px;}
+#gallery{padding:88px 5vw;background:var(--charcoal);}
+#gallery .section-label{color:var(--copper);}
+#gallery .section-h2{color:#fff;}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;}
+.job-card{
+  aspect-ratio:4/5;background:var(--charcoal-soft);
+  border:1px solid rgba(255,255,255,0.06);
+  position:relative;overflow:hidden;
+  transition:transform .25s,border-color .25s;
+}
+.job-card:hover{transform:translateY(-4px);border-color:var(--copper);}
+.job-card-bg{
+  position:absolute;inset:0;
+  opacity:.35;
+}
+.job-tag{
+  position:absolute;bottom:12px;left:12px;
+  font-size:10px;letter-spacing:0.12em;text-transform:uppercase;
+  background:var(--copper);color:#fff;padding:5px 10px;font-weight:500;
+}
+.job-status{
+  position:absolute;top:12px;right:12px;
+  font-size:10px;letter-spacing:0.1em;text-transform:uppercase;
+  background:rgba(0,0,0,0.5);color:#6adb8a;padding:4px 8px;
+  border:1px solid rgba(106,219,138,0.3);
+}
 
 /* BOOKING */
-#booking{padding:100px 5vw;background:var(--bg2);}
-.booking-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;max-width:1000px;}
-.booking-h2{font-family:var(--font-head);font-size:clamp(36px,4vw,56px);letter-spacing:0.03em;line-height:1;margin-bottom:14px;}
-.booking-sub{font-size:15px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:28px;max-width:38ch;}
-.cal{background:var(--surface);border:1px solid var(--border);padding:24px;}
-.cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-.cal-month{font-family:var(--font-head);font-size:20px;letter-spacing:0.06em;}
-.cal-nav{font-family:var(--font-mono);font-size:14px;color:var(--muted);cursor:none;background:none;border:none;color:var(--muted);padding:4px 8px;transition:color .2s;}
-.cal-nav:hover{color:var(--accent);}
+#booking{padding:88px 5vw;background:var(--cream);}
+.booking-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:56px;align-items:start;max-width:980px;
+}
+.booking-h2{font-family:var(--font-head);font-size:clamp(34px,4vw,52px);letter-spacing:0.03em;line-height:1;margin-bottom:14px;}
+.booking-sub{font-size:15px;color:var(--ink-soft);line-height:1.75;font-weight:300;max-width:38ch;margin-bottom:28px;}
+.confirm-btn{
+  width:100%;padding:15px;
+  background:transparent;border:2px solid var(--copper);
+  color:var(--copper);font-family:var(--font-head);font-size:18px;
+  letter-spacing:0.07em;cursor:pointer;transition:background .2s,color .2s;
+}
+.confirm-btn.ready,.confirm-btn:hover{background:var(--copper);color:#fff;}
+.slot-text{font-size:12px;color:var(--muted);margin-top:10px;letter-spacing:0.04em;min-height:18px;}
+
+.cal{background:var(--white);border:1.5px solid var(--border);padding:24px;}
+.cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.cal-month{font-family:var(--font-head);font-size:22px;letter-spacing:0.05em;}
+.cal-nav-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:5px 10px;cursor:pointer;font-size:13px;transition:border-color .15s,color .15s;}
+.cal-nav-btn:hover{border-color:var(--copper);color:var(--copper);}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
-.cal-day{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:11px;color:var(--muted);border-radius:2px;}
-.cal-day.header{color:var(--muted);font-size:9px;letter-spacing:0.1em;}
-.cal-day.open{background:var(--surface2);color:var(--white);cursor:none;transition:background .15s;}
-.cal-day.open:hover{background:rgba(232,131,74,0.2);color:var(--copper);}
-.cal-day.selected{background:var(--copper);color:var(--bg);font-weight:700;}
-.confirm-btn{width:100%;padding:16px;background:transparent;border:1px solid var(--copper);color:var(--copper);font-family:var(--font-head);font-size:18px;letter-spacing:0.08em;cursor:none;transition:background .2s,color .2s;margin-top:0;}
-.confirm-btn:hover,.confirm-btn.ready{background:var(--copper);color:var(--bg);}
-.selected-slot{font-family:var(--font-mono);font-size:11px;color:var(--muted);margin-top:10px;letter-spacing:0.08em;min-height:18px;}
+.cal-cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);}
+.cal-cell.hdr{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:500;}
+.cal-cell.open{background:var(--cream2);color:var(--ink);cursor:pointer;transition:background .15s;}
+.cal-cell.open:hover{background:var(--copper-dim);color:var(--charcoal);}
+.cal-cell.selected{background:var(--copper);color:#fff;font-weight:600;}
 
 /* FOOTER */
-footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5vw;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:center;}
-.footer-brand{font-family:var(--font-head);font-size:18px;letter-spacing:0.06em;}
-.footer-brand span{color:var(--copper);}
-.footer-links{display:flex;gap:28px;flex-wrap:wrap;}
-.footer-links a{font-family:var(--font-mono);font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:0.08em;transition:color .2s;}
-.footer-links a:hover{color:var(--white);}
-.footer-note{font-family:var(--font-mono);font-size:10px;color:var(--muted);letter-spacing:0.06em;border:1px solid var(--border);padding:6px 14px;}
+footer{
+  background:var(--charcoal);border-top:3px solid var(--copper);
+  padding:36px 5vw;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;
+  align-items:center;
+}
+.footer-col{}
+.footer-col strong{display:block;color:#fff;font-size:14px;margin-bottom:6px;font-weight:600;}
+.footer-col span{font-size:13px;color:#6a7a8a;}
+.demo-note{
+  font-size:11px;color:#4a5a6a;letter-spacing:0.06em;
+  border:1px solid #2a3440;padding:8px 14px;
+}
 
 /* REVEAL */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s;}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s;}
 .reveal.visible{opacity:1;transform:none;}
 
-/* RESPONSIVE */
 @media(max-width:860px){
-  #hero{grid-template-columns:1fr;}
-  .hero-right{padding:0 5vw 60px;}
+  .hero-inner{grid-template-columns:1fr;}
+  .estimate-card{box-shadow:none;}
   .steps{grid-template-columns:1fr;}
   .gallery-grid{grid-template-columns:repeat(2,1fr);}
   .booking-inner{grid-template-columns:1fr;}
+  .trust-row{gap:24px;}
 }
 </style>
 </head>
 <body>
 
-<div id="cur"></div>
-<div id="cur-r"></div>
-
+<!-- NAV -->
 <nav>
   <div class="brand">
-    <div class="brand-hex"></div>
+    <div class="brand-icon"></div>
     <div>
       <div class="brand-name">Austin's Greatest Plumbing</div>
-      <div class="brand-sub">7915 CAMERON RD · AUSTIN, TX 78754</div>
+      <div class="brand-addr">7915 Cameron Rd · Austin, TX 78754</div>
     </div>
   </div>
-  <div style="display:flex;align-items:center;gap:16px;">
-    <span class="demo-badge">Pitch Demo</span>
-    <a class="call-btn" href="tel:5123779919">Call (512) 377-9919</a>
-  </div>
+  <a class="call-btn" href="tel:5123779919">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12.5 9.8c-.4-.4-1.7-1.1-2.3-1.1-.3 0-.5.1-1 .6-.2.2-.4.4-.6.4-.3 0-.8-.3-1.6-1.1C6.2 7.8 5.9 7.3 5.9 7c0-.2.2-.4.4-.6.5-.5.6-.7.6-1 0-.6-.7-1.9-1.1-2.3C5.4 2.7 5 2.5 4.7 2.5c-.7 0-2.2 2-2.2 2.3 0 1.4 1 3.8 2.8 5.5 1.7 1.8 4.1 2.8 5.5 2.8.3 0 2.3-1.5 2.3-2.2 0-.3-.2-.7-.6-1.1z" stroke="white" stroke-width="1" fill="none"/></svg>
+    Call (512) 377-9919
+  </a>
 </nav>
 
+<!-- HERO -->
 <section id="hero">
-  <canvas id="hero-canvas"></canvas>
-  <div class="hero-grid"></div>
-
-  <div class="hero-left">
-    <div class="eyebrow">Instant estimate tool</div>
-    <h1 class="hero-h1">Get a <span>real price</span> before you call anyone.</h1>
-    <p class="hero-sub">Answer three quick questions and get an honest repair range — priced by Austin's Greatest Plumbing, not a call-center script. Takes under 60 seconds.</p>
-    <div class="trust-row">
-      <div class="trust-item">
-        <div class="trust-num">5.0<span>★</span></div>
-        <div class="trust-label">Google rating</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-num">149</div>
-        <div class="trust-label">Verified reviews</div>
-      </div>
-      <div class="trust-item">
-        <div class="trust-num">24<span>/7</span></div>
-        <div class="trust-label">Emergency service</div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">◆ Instant estimate tool</div>
+      <h1 class="hero-h1">Get a <em>real price</em> before you let anyone in.</h1>
+      <p class="hero-sub">Pick your job type, answer two more questions, and get an honest repair range in under 60 seconds — no call required.</p>
+      <div class="trust-row">
+        <div class="trust-item">
+          <div class="trust-num">5.0<em>★</em></div>
+          <div class="trust-label">Google rating</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-num">149</div>
+          <div class="trust-label">Verified reviews</div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-num">24<em>/7</em></div>
+          <div class="trust-label">Emergency service</div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="hero-right">
-    <div class="estimate-panel">
-      <div class="panel-head">
-        <span class="panel-title">Job Estimate</span>
-        <span class="panel-id">TICKET #P-1147</span>
+    <div class="estimate-card">
+      <div class="card-head">
+        <span class="card-title">Job Estimate</span>
+        <span class="card-id">TICKET #P-1147</span>
       </div>
 
       <div class="field">
-        <div class="field-label">Job Type</div>
+        <div class="field-label">What's the job?</div>
         <div class="chip-row" id="jobType">
           <button class="chip active" data-base="150">Drain / Clog</button>
           <button class="chip" data-base="420">Leak Repair</button>
@@ -213,7 +330,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5vw;
       </div>
 
       <div class="field">
-        <div class="field-label">Property Size</div>
+        <div class="field-label">Property type</div>
         <div class="chip-row" id="propSize">
           <button class="chip active" data-mult="0.8">Apartment</button>
           <button class="chip" data-mult="1">Single-Family</button>
@@ -222,77 +339,96 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5vw;
       </div>
 
       <div class="field">
-        <div class="field-label">Urgency</div>
-        <div class="range-wrap">
-          <input type="range" id="urgency" min="1" max="10" value="4">
-          <div class="range-labels"><span>Can wait</span><span>Emergency now</span></div>
-        </div>
+        <div class="field-label">How urgent?</div>
+        <input type="range" id="urgency" min="1" max="10" value="4">
+        <div class="range-labels"><span>Can wait a few days</span><span>Emergency — right now</span></div>
       </div>
 
       <div class="breakdown">
         <div class="b-row"><span>Base assessment</span><span id="lineBase">$150</span></div>
-        <div class="b-row"><span>Size adjustment</span><span id="lineSize">×0.8</span></div>
-        <div class="b-row"><span>Urgency factor</span><span id="lineUrgency">×1.0</span></div>
+        <div class="b-row"><span>Property adjustment</span><span id="lineSize">×0.8</span></div>
+        <div class="b-row"><span>Urgency factor</span><span id="lineUrgency">×1.06</span></div>
       </div>
 
       <div class="result-box">
         <div class="result-range" id="estimateRange">$100 – $140</div>
-        <div class="result-label">Estimated repair range · Final quote on arrival</div>
+        <div class="result-label">Estimated repair range · Final quote confirmed on arrival</div>
       </div>
 
-      <button class="book-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book a Plumber →</button>
+      <button class="book-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
+        Book a Plumber →
+      </button>
     </div>
   </div>
 </section>
 
+<!-- HOW IT WORKS -->
 <section id="how">
-  <div class="section-tag reveal">How it works</div>
-  <div class="section-h2 reveal">No calls. No waiting.<br>Just a booked job.</div>
+  <div class="section-label reveal">How it works</div>
+  <div class="section-h2 reveal">No phone tag. Just a booked job.</div>
   <div class="steps">
     <div class="step reveal">
       <div class="step-num">01 — DESCRIBE</div>
       <div class="step-title">Pick your job type</div>
-      <div class="step-desc">Select job type, property size, and how urgent it is. No account, no sign-up — takes under a minute on any device.</div>
+      <div class="step-desc">Select the job, your property type, and how urgent it is. No account needed, no sign-up. Works on any phone.</div>
     </div>
     <div class="step reveal">
       <div class="step-num">02 — ESTIMATE</div>
       <div class="step-title">Get a real price range</div>
-      <div class="step-desc">An honest range computed from Austin's Greatest Plumbing's own pricing — not a lead-gen teaser. Sets your expectations before anyone drives out.</div>
+      <div class="step-desc">A genuine range based on Austin's Greatest Plumbing's pricing — not a teaser to get your number. Know what to expect before anyone shows up.</div>
     </div>
     <div class="step reveal">
       <div class="step-num">03 — BOOK</div>
-      <div class="step-title">Pick a slot, we show up</div>
-      <div class="step-desc">Confirmed appointment in your calendar, SMS reminder sent automatically. No phone tag, no callbacks, no waiting on hold.</div>
+      <div class="step-title">Pick a time, we'll be there</div>
+      <div class="step-desc">Choose a slot from the calendar and you're confirmed. You'll get a text reminder. No callbacks, no waiting on hold.</div>
     </div>
   </div>
 </section>
 
+<!-- GALLERY -->
 <section id="gallery">
-  <div class="section-tag reveal">Recent work</div>
-  <div class="section-h2 reveal">Every job becomes proof<br>for the next customer.</div>
+  <div class="section-label reveal">Recent work</div>
+  <div class="section-h2 reveal">Jobs we've completed<br>for Austin homeowners.</div>
   <div class="gallery-grid">
-    <div class="job-card reveal"><canvas class="job-canvas" data-hue="186"></canvas><span class="job-tag">Leak repair</span></div>
-    <div class="job-card reveal"><canvas class="job-canvas" data-hue="28"></canvas><span class="job-tag">Water heater</span></div>
-    <div class="job-card reveal"><canvas class="job-canvas" data-hue="150"></canvas><span class="job-tag">Repipe</span></div>
-    <div class="job-card reveal"><canvas class="job-canvas" data-hue="270"></canvas><span class="job-tag">Drain clear</span></div>
+    <div class="job-card reveal">
+      <div class="job-card-bg" style="background:linear-gradient(160deg,#3a4a5c,#1e2830);"></div>
+      <span class="job-tag">Leak repair</span>
+      <span class="job-status">Completed</span>
+    </div>
+    <div class="job-card reveal">
+      <div class="job-card-bg" style="background:linear-gradient(160deg,#5c3a20,#2e1c0e);"></div>
+      <span class="job-tag">Water heater</span>
+      <span class="job-status">Completed</span>
+    </div>
+    <div class="job-card reveal">
+      <div class="job-card-bg" style="background:linear-gradient(160deg,#1e4a3a,#0e2820);"></div>
+      <span class="job-tag">Full repipe</span>
+      <span class="job-status">Completed</span>
+    </div>
+    <div class="job-card reveal">
+      <div class="job-card-bg" style="background:linear-gradient(160deg,#3a2a4a,#1e1428);"></div>
+      <span class="job-tag">Drain clear</span>
+      <span class="job-status">Completed</span>
+    </div>
   </div>
 </section>
 
+<!-- BOOKING -->
 <section id="booking">
-  <div class="section-tag reveal">Book a plumber</div>
+  <div class="section-label reveal">Book a plumber</div>
   <div class="booking-inner">
     <div>
-      <div class="booking-h2 reveal">Pick a slot.<br>We'll be there.</div>
-      <p class="booking-sub reveal">Real availability from the shop calendar — select a time and you're confirmed instantly. No callback required.</p>
-      <button class="confirm-btn reveal" id="confirmBtn">Select a time slot above →</button>
-      <div class="selected-slot" id="selectedSlot"></div>
+      <div class="booking-h2 reveal">Pick a time.<br>We'll show up.</div>
+      <p class="booking-sub reveal">Select an open slot from the calendar. You're confirmed instantly — no phone call needed to lock it in.</p>
+      <button class="confirm-btn reveal" id="confirmBtn">Select a time slot →</button>
+      <div class="slot-text" id="slotText"></div>
     </div>
     <div class="cal reveal">
       <div class="cal-head">
         <span class="cal-month">August 2026</span>
-        <div style="display:flex;gap:4px;">
-          <button class="cal-nav">‹</button>
-          <button class="cal-nav">›</button>
+        <div style="display:flex;gap:6px;">
+          <button class="cal-nav-btn">‹</button>
+          <button class="cal-nav-btn">›</button>
         </div>
       </div>
       <div class="cal-grid" id="calGrid"></div>
@@ -300,173 +436,88 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 5vw;
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
-  <div class="footer-brand">Austin's <span>Greatest</span> Plumbing</div>
-  <div class="footer-links">
-    <a href="tel:5123779919">(512) 377-9919</a>
-    <a href="#">7915 Cameron Rd, Austin TX</a>
-    <a href="#">24/7 Emergency</a>
+  <div class="footer-col">
+    <strong>Austin's Greatest Plumbing</strong>
+    <span>7915 Cameron Road, Austin TX 78754</span>
   </div>
-  <div class="footer-note">Pitch demo — built by BenchWorks Labs</div>
+  <div class="footer-col">
+    <strong>Contact</strong>
+    <span>(512) 377-9919 · 24/7 Emergency</span>
+  </div>
+  <div class="demo-note">Pitch demo — built by BenchWorks Labs</div>
 </footer>
 
 <script>
-/* CURSOR */
-const cur = document.getElementById('cur');
-const curR = document.getElementById('cur-r');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-(function tick(){
-  rx+=(mx-rx)*.1; ry+=(my-ry)*.1;
-  cur.style.left=mx+'px'; cur.style.top=my+'px';
-  curR.style.left=rx+'px'; curR.style.top=ry+'px';
-  requestAnimationFrame(tick);
-})();
-
-/* HERO PARTICLES */
-(function(){
-  const canvas=document.getElementById('hero-canvas');
-  const ctx=canvas.getContext('2d');
-  const hero=document.getElementById('hero');
-  let W,H,pts=[],mouse={x:-999,y:-999};
-  const PALETTE=[186,28,270,150,330];
-
-  function resize(){W=canvas.width=hero.offsetWidth;H=canvas.height=hero.offsetHeight;}
-  window.addEventListener('resize',resize);
-  document.addEventListener('mousemove',e=>{const r=canvas.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
-
-  function mkPt(){
-    return{x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,
-      baseR:Math.random()*1.6+.4,r:0,baseA:Math.random()*.5+.1,alpha:0,
-      hue:PALETTE[Math.floor(Math.random()*PALETTE.length)],af:0};
-  }
-
-  function draw(){
-    ctx.clearRect(0,0,W,H);
-    const CD=150,AD=120;
-    pts.forEach(p=>{
-      const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);
-      p.af+=(( d<AD?1:0)-p.af)*.08;
-      if(d<AD&&d>0){p.vx+=dx/d*.05;p.vy+=dy/d*.05;}
-      p.vx*=.99;p.vy*=.99;p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
-      p.r=p.baseR+p.af*3;p.alpha=p.baseA+p.af*.5;
-    });
-    for(let i=0;i<pts.length;i++){
-      for(let j=i+1;j<pts.length;j++){
-        const p=pts[i],q=pts[j],dx=p.x-q.x,dy=p.y-q.y,dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist<CD){
-          const fade=1-dist/CD,boost=Math.max(p.af,q.af),la=(0.07+boost*.3)*fade;
-          const g=ctx.createLinearGradient(p.x,p.y,q.x,q.y);
-          g.addColorStop(0,`hsla(${p.hue},100%,65%,${la})`);
-          g.addColorStop(1,`hsla(${q.hue},100%,65%,${la})`);
-          ctx.beginPath();ctx.strokeStyle=g;ctx.lineWidth=.5+boost*.7;ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();
-        }
-      }
-    }
-    pts.forEach(p=>{
-      if(p.af>.05){
-        const g=ctx.createRadialGradient(p.x,p.y,0,p.x,p.y,p.r*5);
-        g.addColorStop(0,`hsla(${p.hue},100%,70%,${p.af*.2})`);
-        g.addColorStop(1,`hsla(${p.hue},100%,70%,0)`);
-        ctx.beginPath();ctx.arc(p.x,p.y,p.r*5,0,Math.PI*2);ctx.fillStyle=g;ctx.fill();
-      }
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=`hsla(${p.hue},100%,72%,${p.alpha})`;ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-
-  requestAnimationFrame(()=>{
-    resize();
-    const N=Math.min(200,Math.floor(W*H/6000));
-    for(let i=0;i<N;i++)pts.push(mkPt());
-    draw();
-  });
-})();
-
-/* GALLERY MINI CANVASES */
-document.querySelectorAll('.job-canvas').forEach(canvas=>{
-  const hue=parseInt(canvas.dataset.hue);
-  const ctx=canvas.getContext('2d');
-  const parent=canvas.parentElement;
-  function resize(){canvas.width=parent.offsetWidth;canvas.height=parent.offsetHeight;}
-  resize(); window.addEventListener('resize',resize);
-  const pts=Array.from({length:10},()=>({
-    x:Math.random()*canvas.width,y:Math.random()*canvas.height,
-    vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4
-  }));
-  function draw(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    for(let i=0;i<pts.length;i++){
-      for(let j=i+1;j<pts.length;j++){
-        const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
-        if(d<140){ctx.beginPath();ctx.strokeStyle=`hsla(${hue},80%,60%,${.12*(1-d/140)})`;ctx.lineWidth=.6;ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.stroke();}
-      }
-    }
-    pts.forEach(p=>{
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0||p.x>canvas.width)p.vx*=-1;
-      if(p.y<0||p.y>canvas.height)p.vy*=-1;
-      ctx.beginPath();ctx.arc(p.x,p.y,1.5,0,Math.PI*2);
-      ctx.fillStyle=`hsla(${hue},100%,70%,.5)`;ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-  draw();
-});
-
 /* ESTIMATE LOGIC */
-const jobBtns=document.querySelectorAll('#jobType .chip');
-const propBtns=document.querySelectorAll('#propSize .chip');
-const urgency=document.getElementById('urgency');
+const jobBtns = document.querySelectorAll('#jobType .chip');
+const propBtns = document.querySelectorAll('#propSize .chip');
+const urgency  = document.getElementById('urgency');
 
-function setActive(group,target){group.forEach(b=>b.classList.remove('active'));target.classList.add('active');}
-jobBtns.forEach(b=>b.addEventListener('click',()=>{setActive(jobBtns,b);calc();}));
-propBtns.forEach(b=>b.addEventListener('click',()=>{setActive(propBtns,b);calc();}));
-urgency.addEventListener('input',calc);
+function setActive(group, btn){
+  group.forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+jobBtns.forEach(b => b.addEventListener('click', () => { setActive(jobBtns, b); calc(); }));
+propBtns.forEach(b => b.addEventListener('click', () => { setActive(propBtns, b); calc(); }));
+urgency.addEventListener('input', calc);
 
 function calc(){
-  const base=parseFloat(document.querySelector('#jobType .chip.active').dataset.base);
-  const mult=parseFloat(document.querySelector('#propSize .chip.active').dataset.mult);
-  const sev=parseFloat(urgency.value);
-  const uf=0.7+(sev/10)*.9;
-  const mid=base*mult*uf;
-  const low=Math.round(mid*.82/10)*10;
-  const high=Math.round(mid*1.18/10)*10;
-  const el=document.getElementById('estimateRange');
-  el.style.opacity='0';el.style.transform='translateY(6px)';
-  setTimeout(()=>{
-    document.getElementById('lineBase').textContent='$'+base.toLocaleString();
-    document.getElementById('lineSize').textContent='×'+mult;
-    document.getElementById('lineUrgency').textContent='×'+uf.toFixed(2);
-    el.textContent='$'+low.toLocaleString()+' – $'+high.toLocaleString();
-    el.style.transition='opacity .3s,transform .3s';
-    el.style.opacity='1';el.style.transform='none';
-  },150);
+  const base = parseFloat(document.querySelector('#jobType .chip.active').dataset.base);
+  const mult = parseFloat(document.querySelector('#propSize .chip.active').dataset.mult);
+  const sev  = parseFloat(urgency.value);
+  const uf   = 0.7 + (sev / 10) * 0.9;
+  const mid  = base * mult * uf;
+  const low  = Math.round(mid * 0.82 / 10) * 10;
+  const high = Math.round(mid * 1.18 / 10) * 10;
+
+  const el = document.getElementById('estimateRange');
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(6px)';
+  setTimeout(() => {
+    document.getElementById('lineBase').textContent    = '$' + base.toLocaleString();
+    document.getElementById('lineSize').textContent    = '×' + mult;
+    document.getElementById('lineUrgency').textContent = '×' + uf.toFixed(2);
+    el.textContent = '$' + low.toLocaleString() + ' – $' + high.toLocaleString();
+    el.style.transition = 'opacity .3s, transform .3s';
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+  }, 140);
 }
 calc();
 
 /* CALENDAR */
-const calGrid=document.getElementById('calGrid');
-const days=['Su','Mo','Tu','We','Th','Fr','Sa'];
-days.forEach(d=>{const el=document.createElement('div');el.className='cal-day header';el.textContent=d;calGrid.appendChild(el);});
-const openDays=[3,4,7,8,10,11,14,17,18,21,24,25,28];
-// Aug 1 2026 is Saturday = index 6
-for(let blank=0;blank<6;blank++){const el=document.createElement('div');el.className='cal-day';calGrid.appendChild(el);}
-const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-for(let i=1;i<=31;i++){
-  const el=document.createElement('div');
-  el.className='cal-day'+(openDays.includes(i)?' open':'');
-  el.textContent=i;
-  if(openDays.includes(i)){
-    el.addEventListener('click',()=>{
-      document.querySelectorAll('.cal-day.selected').forEach(s=>s.classList.remove('selected'));
+const calGrid  = document.getElementById('calGrid');
+const openDays = [3, 4, 7, 8, 10, 11, 14, 17, 18, 21, 24, 25, 28];
+
+['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(d => {
+  const el = document.createElement('div');
+  el.className = 'cal-cell hdr';
+  el.textContent = d;
+  calGrid.appendChild(el);
+});
+
+// Aug 1 2026 = Saturday, offset 6 blank cells
+for(let i = 0; i < 6; i++){
+  const el = document.createElement('div');
+  el.className = 'cal-cell';
+  calGrid.appendChild(el);
+}
+
+for(let i = 1; i <= 31; i++){
+  const el = document.createElement('div');
+  const isOpen = openDays.includes(i);
+  el.className = 'cal-cell' + (isOpen ? ' open' : '');
+  el.textContent = i;
+  if(isOpen){
+    el.addEventListener('click', () => {
+      document.querySelectorAll('.cal-cell.selected').forEach(s => s.classList.remove('selected'));
       el.classList.add('selected');
-      const slotLabel=`Aug ${i}, 2026 — 10:00 AM`;
-      document.getElementById('selectedSlot').textContent='Selected: '+slotLabel;
-      const btn=document.getElementById('confirmBtn');
-      btn.textContent='Confirm '+slotLabel+' →';
+      const label = 'Aug ' + i + ', 2026 · 10:00 AM';
+      document.getElementById('slotText').textContent = 'Selected: ' + label;
+      const btn = document.getElementById('confirmBtn');
+      btn.textContent = 'Confirm ' + label + ' →';
       btn.classList.add('ready');
     });
   }
@@ -474,8 +525,11 @@ for(let i=1;i<=31;i++){
 }
 
 /* SCROLL REVEAL */
-const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const io = new IntersectionObserver(
+  entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }),
+  { threshold: 0.1 }
+);
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
