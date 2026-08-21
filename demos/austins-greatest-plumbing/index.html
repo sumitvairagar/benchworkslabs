@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Austin's Greatest Plumbing — Instant Job Estimate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#1B2127;
+    --charcoal-soft:#232A31;
+    --copper:#A8562C;
+    --copper-bright:#C97444;
+    --storm-blue:#4C6B8A;
+    --paper:#E4E4DC;
+    --paper-dim:#C9C9BE;
+    --ink:#1B2127;
+    --danger:#B23A2E;
+    --ok:#4E7A5C;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter', sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.5;
+  }
+  h1,h2,h3{font-family:'Oswald', sans-serif; text-transform:uppercase; letter-spacing:0.02em;}
+  .mono{font-family:'IBM Plex Mono', monospace;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 6vw; background:var(--charcoal); color:var(--paper);
+    position:sticky; top:0; z-index:50;
+    border-bottom:2px solid var(--copper);
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand-mark{
+    width:34px; height:34px; background:var(--copper);
+    clip-path:polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  }
+  .brand-name{font-family:'Oswald'; font-weight:600; font-size:18px; letter-spacing:0.03em;}
+  .brand-sub{font-family:'IBM Plex Mono'; font-size:10px; color:var(--paper-dim); letter-spacing:0.08em;}
+  nav a.callbtn{
+    font-family:'IBM Plex Mono'; font-size:13px; color:var(--charcoal);
+    background:var(--copper-bright); padding:10px 18px; border-radius:2px;
+    text-decoration:none; font-weight:600;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    background:
+      linear-gradient(180deg, var(--charcoal) 0%, var(--charcoal) 55%, var(--paper) 55%);
+    padding:64px 6vw 90px;
+  }
+  .roofline{
+    position:absolute; top:0; left:0; width:100%; height:220px; opacity:0.5;
+  }
+  .hero-inner{
+    position:relative; display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px;
+    max-width:1180px; margin:0 auto; align-items:start;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono'; color:var(--copper-bright); font-size:12px;
+    letter-spacing:0.14em; margin-bottom:14px;
+  }
+  .hero h1{
+    color:var(--paper); font-size:clamp(32px,4.4vw,54px); line-height:1.04; font-weight:600;
+    max-width:11ch;
+  }
+  .hero h1 span{color:var(--copper-bright);}
+  .hero p.sub{
+    color:var(--paper-dim); font-size:16px; max-width:42ch; margin-top:18px;
+  }
+  .trust-row{
+    display:flex; gap:22px; margin-top:30px; flex-wrap:wrap;
+  }
+  .trust-item{font-family:'IBM Plex Mono'; font-size:12px; color:var(--paper-dim);}
+  .trust-item b{color:var(--paper); font-family:'Inter'; font-weight:700;}
+
+  /* ---------- ESTIMATE TICKET ---------- */
+  .ticket{
+    background:var(--paper); border-radius:2px; padding:26px 26px 22px;
+    box-shadow:0 24px 60px rgba(0,0,0,0.35);
+    transform:rotate(1.2deg);
+    position:relative;
+  }
+  .ticket::before{
+    content:""; position:absolute; top:-10px; left:24px; right:24px; height:20px;
+    background:
+      radial-gradient(circle 5px at 10px 50%, transparent 5px, var(--paper) 5.5px) repeat-x;
+    background-size:20px 20px;
+  }
+  .ticket-head{
+    display:flex; justify-content:space-between; align-items:baseline;
+    border-bottom:2px dashed var(--paper-dim); padding-bottom:10px; margin-bottom:14px;
+  }
+  .ticket-head h3{font-size:15px; letter-spacing:0.06em;}
+  .ticket-no{font-family:'IBM Plex Mono'; font-size:11px; color:#6b6b60;}
+  .field{margin-bottom:16px;}
+  .field label{
+    display:block; font-family:'IBM Plex Mono'; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.08em; color:#5c5c50; margin-bottom:8px;
+  }
+  .chip-row{display:flex; gap:8px; flex-wrap:wrap;}
+  .chip{
+    font-family:'IBM Plex Mono'; font-size:12px; padding:8px 12px; border-radius:2px;
+    border:1.5px solid var(--paper-dim); background:transparent; cursor:pointer;
+    transition:all .15s ease;
+  }
+  .chip.active{background:var(--charcoal); color:var(--paper); border-color:var(--charcoal);}
+  input[type=range]{
+    width:100%; accent-color:var(--copper);
+  }
+  .severity-label{
+    display:flex; justify-content:space-between; font-family:'IBM Plex Mono'; font-size:10px;
+    color:#6b6b60; margin-top:6px;
+  }
+  .ticket-line{
+    display:flex; justify-content:space-between; padding:6px 0;
+    font-family:'IBM Plex Mono'; font-size:13px; border-bottom:1px dotted var(--paper-dim);
+  }
+  .estimate-out{
+    margin-top:16px; padding:16px; background:var(--charcoal); border-radius:2px;
+    color:var(--paper); text-align:center;
+  }
+  .estimate-out .range{
+    font-family:'IBM Plex Mono'; font-size:28px; color:var(--copper-bright); font-weight:600;
+  }
+  .estimate-out .label{font-size:11px; letter-spacing:0.1em; color:var(--paper-dim); margin-top:4px;}
+  .book-btn{
+    width:100%; margin-top:14px; padding:14px; border:none; border-radius:2px;
+    background:var(--copper); color:var(--paper); font-family:'Oswald'; font-weight:600;
+    letter-spacing:0.05em; font-size:14px; cursor:pointer; text-transform:uppercase;
+  }
+  .book-btn:hover{background:var(--copper-bright);}
+
+  /* ---------- HOW IT WORKS ---------- */
+  section{padding:80px 6vw;}
+  .section-head{max-width:640px; margin:0 auto 48px; text-align:center;}
+  .section-head .eyebrow{color:var(--copper); justify-content:center; display:flex;}
+  .section-head h2{font-size:clamp(24px,3vw,34px);}
+  .steps{
+    max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+  }
+  .step{
+    background:var(--charcoal-soft); color:var(--paper); padding:30px 26px; border-radius:2px;
+    border-top:3px solid var(--copper);
+  }
+  .step .num{font-family:'IBM Plex Mono'; color:var(--copper-bright); font-size:13px;}
+  .step h3{font-size:19px; margin:10px 0 10px;}
+  .step p{color:var(--paper-dim); font-size:14px;}
+
+  /* ---------- GALLERY ---------- */
+  .gallery-wrap{background:var(--charcoal);}
+  .gallery-wrap .section-head h2, .gallery-wrap .section-head p{color:var(--paper);}
+  .gallery-wrap .section-head p{color:var(--paper-dim); margin-top:10px;}
+  .gallery{
+    max-width:1100px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
+  }
+  .job-card{
+    aspect-ratio:4/5; border-radius:2px; overflow:hidden; position:relative;
+    background:linear-gradient(160deg,#3a4048,#20262c);
+  }
+  .job-card svg{position:absolute; inset:0; width:100%; height:100%;}
+  .job-card .tag{
+    position:absolute; bottom:10px; left:10px; font-family:'IBM Plex Mono'; font-size:10px;
+    background:var(--copper); color:var(--paper); padding:4px 8px; border-radius:2px;
+    letter-spacing:0.05em;
+  }
+
+  /* ---------- BOOKING ---------- */
+  .booking{
+    max-width:900px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+  }
+  .booking h2{font-size:clamp(24px,3vw,32px); margin-bottom:14px;}
+  .booking p{color:#4a4a40; margin-bottom:20px; max-width:38ch;}
+  .cal{
+    background:var(--charcoal-soft); border-radius:2px; padding:20px; color:var(--paper);
+  }
+  .cal-head{display:flex; justify-content:space-between; font-family:'IBM Plex Mono'; font-size:12px; margin-bottom:14px; color:var(--paper-dim);}
+  .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:6px;}
+  .cal-day{
+    aspect-ratio:1; display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono'; font-size:12px; border-radius:2px; color:var(--paper-dim);
+  }
+  .cal-day.open{background:#2c343b; color:var(--paper); cursor:pointer;}
+  .cal-day.open:hover{background:var(--copper);}
+  .cal-day.selected{background:var(--copper-bright); color:var(--charcoal); font-weight:700;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--charcoal); color:var(--paper-dim); padding:40px 6vw;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:20px;
+    font-family:'IBM Plex Mono'; font-size:12px; border-top:2px solid var(--copper);
+  }
+  footer .col b{color:var(--paper); display:block; margin-bottom:6px; font-family:'Inter';}
+
+  @media(max-width:860px){
+    .hero-inner{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .gallery{grid-template-columns:repeat(2,1fr);}
+    .booking{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">
+    <div class="brand-mark"></div>
+    <div>
+      <div class="brand-name">Austin's Greatest Plumbing</div>
+      <div class="brand-sub">7915 CAMERON RD · AUSTIN, TX</div>
+    </div>
+  </div>
+  <a class="callbtn" href="tel:5123779919">Call (512) 377-9919</a>
+</nav>
+
+<section class="hero">
+  <svg class="roofline" viewBox="0 0 1200 220" preserveAspectRatio="none">
+    <polyline points="0,220 0,150 100,80 200,150 300,60 400,150 520,40 640,150 760,70 880,150 1000,50 1120,150 1200,100 1200,220" fill="none" stroke="#A8562C" stroke-width="2" opacity="0.35"/>
+  </svg>
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">◆ INSTANT ESTIMATE TOOL — PITCH DEMO</div>
+      <h1>Leaking pipe? Get a <span>real number</span> before you get a stranger in your house.</h1>
+      <p class="sub">Answer three questions and get an instant repair range — priced by Austin's Greatest Plumbing, not a call-center script.</p>
+      <div class="trust-row">
+        <div class="trust-item"><b>5.0★</b> Google rating</div>
+        <div class="trust-item"><b>149</b> verified reviews</div>
+        <div class="trust-item"><b>24/7</b> emergency service</div>
+      </div>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-head">
+        <h3>Job Estimate</h3>
+        <span class="ticket-no mono">TICKET #P-1147</span>
+      </div>
+
+      <div class="field">
+        <label>Job Type</label>
+        <div class="chip-row" id="jobType">
+          <button class="chip active" data-base="150">Drain / Clog</button>
+          <button class="chip" data-base="420">Leak Repair</button>
+          <button class="chip" data-base="2400">Water Heater</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Property Size</label>
+        <div class="chip-row" id="roofSize">
+          <button class="chip active" data-mult="0.8">Apartment / Condo</button>
+          <button class="chip" data-mult="1">Single-Family Home</button>
+          <button class="chip" data-mult="1.5">Large / Multi-Bath</button>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Urgency</label>
+        <input type="range" id="severity" min="1" max="10" value="4">
+        <div class="severity-label"><span>CAN WAIT</span><span>EMERGENCY NOW</span></div>
+      </div>
+
+      <div class="ticket-line"><span>Base assessment</span><span id="lineBase" class="mono">$380</span></div>
+      <div class="ticket-line"><span>Size adjustment</span><span id="lineSize" class="mono">×0.7</span></div>
+      <div class="ticket-line"><span>Severity factor</span><span id="lineSeverity" class="mono">×1.0</span></div>
+
+      <div class="estimate-out">
+        <div class="range" id="estimateRange">$260 – $340</div>
+        <div class="label">ESTIMATED REPAIR RANGE · FINAL QUOTE ON ARRIVAL</div>
+      </div>
+      <button class="book-btn">Book a Plumber →</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <div class="eyebrow mono">◆ HOW IT WORKS</div>
+    <h2>From missed call to booked job, no phone tag</h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="num">01 / DESCRIBE</div>
+      <h3>Snap a photo or answer three taps</h3>
+      <p>Customer uploads a photo of the leak or picks job type, property size, and urgency — takes under a minute, no account needed.</p>
+    </div>
+    <div class="step">
+      <div class="num">02 / ESTIMATE</div>
+      <h3>Instant, honest range</h3>
+      <p>A real range computed from your own pricing rules — not a lead-gen teaser. Sets expectations before your crew ever drives out.</p>
+    </div>
+    <div class="step">
+      <div class="num">03 / BOOK</div>
+      <h3>One tap into your calendar</h3>
+      <p>Confirmed inspection slot, SMS reminder sent automatically, job appears on your schedule — no back-and-forth calls.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-wrap">
+  <div class="section-head">
+    <div class="eyebrow mono">◆ RECENT WORK</div>
+    <h2>Every job becomes proof for the next customer</h2>
+    <p>Before/after pairs populate automatically from your crew's job photos — placeholder tiles shown below.</p>
+  </div>
+  <div class="gallery">
+    <div class="job-card">
+      <svg viewBox="0 0 200 250"><polyline points="0,180 30,140 60,170 90,110 120,150 150,90 180,140 200,120 200,250 0,250" fill="#3E5C76" opacity="0.5"/></svg>
+      <span class="tag">Leak repair</span>
+    </div>
+    <div class="job-card">
+      <svg viewBox="0 0 200 250"><polyline points="0,160 40,120 80,150 130,100 170,140 200,110 200,250 0,250" fill="#A8562C" opacity="0.5"/></svg>
+      <span class="tag">Water heater</span>
+    </div>
+    <div class="job-card">
+      <svg viewBox="0 0 200 250"><polyline points="0,190 50,150 100,180 150,130 200,160 200,250 0,250" fill="#4E7A5C" opacity="0.5"/></svg>
+      <span class="tag">Repipe</span>
+    </div>
+    <div class="job-card">
+      <svg viewBox="0 0 200 250"><polyline points="0,170 45,130 90,160 135,110 200,150 200,250 0,250" fill="#B23A2E" opacity="0.5"/></svg>
+      <span class="tag">Drain clear</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="booking">
+    <div>
+      <div class="eyebrow mono" style="color:var(--copper)">◆ BOOK A PLUMBER</div>
+      <h2>Pick a slot, we show up</h2>
+      <p>Real availability pulled from the shop calendar — no separate phone call required to confirm.</p>
+      <button class="book-btn" style="width:auto; padding:14px 28px;">Confirm Tuesday, 10 AM</button>
+    </div>
+    <div class="cal">
+      <div class="cal-head"><span>AUGUST 2026</span><span>‹ ›</span></div>
+      <div class="cal-grid" id="calGrid"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="col">
+    <b>Austin's Greatest Plumbing</b>
+    7915 Cameron Road<br>Austin, TX 78754
+  </div>
+  <div class="col">
+    <b>Contact</b>
+    (512) 377-9919<br>24/7 Emergency Service
+  </div>
+  <div class="col">
+    <b>Demo Note</b>
+    Interactive pitch mockup — pricing logic, calendar &amp; gallery are illustrative placeholders for the proposal.
+  </div>
+</footer>
+
+<script>
+  const jobBtns = document.querySelectorAll('#jobType .chip');
+  const sizeBtns = document.querySelectorAll('#roofSize .chip');
+  const severity = document.getElementById('severity');
+
+  function setActive(group, target){
+    group.forEach(b => b.classList.remove('active'));
+    target.classList.add('active');
+  }
+
+  jobBtns.forEach(b => b.addEventListener('click', () => { setActive(jobBtns, b); calc(); }));
+  sizeBtns.forEach(b => b.addEventListener('click', () => { setActive(sizeBtns, b); calc(); }));
+  severity.addEventListener('input', calc);
+
+  function calc(){
+    const base = parseFloat(document.querySelector('#jobType .chip.active').dataset.base);
+    const mult = parseFloat(document.querySelector('#roofSize .chip.active').dataset.mult);
+    const sev = parseFloat(severity.value);
+    const sevFactor = 0.7 + (sev / 10) * 0.9;
+
+    const mid = base * mult * sevFactor;
+    const low = Math.round(mid * 0.82 / 10) * 10;
+    const high = Math.round(mid * 1.18 / 10) * 10;
+
+    document.getElementById('lineBase').textContent = '$' + base.toLocaleString();
+    document.getElementById('lineSize').textContent = '×' + mult;
+    document.getElementById('lineSeverity').textContent = '×' + sevFactor.toFixed(2);
+    document.getElementById('estimateRange').textContent = '$' + low.toLocaleString() + ' – $' + high.toLocaleString();
+  }
+
+  // calendar
+  const calGrid = document.getElementById('calGrid');
+  const days = ['S','M','T','W','T','F','S'];
+  days.forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'cal-day';
+    el.style.color = 'var(--paper-dim)';
+    el.style.fontWeight = '700';
+    el.textContent = d;
+    calGrid.appendChild(el);
+  });
+  const openDays = [3,4,7,8,10,11,12,14,17,18,20,21,24,25,27,28];
+  for(let i=1; i<=31; i++){
+    const el = document.createElement('div');
+    el.className = 'cal-day' + (openDays.includes(i) ? ' open' : '');
+    el.textContent = i;
+    if(openDays.includes(i)){
+      el.addEventListener('click', () => {
+        document.querySelectorAll('.cal-day.selected').forEach(s => s.classList.remove('selected'));
+        el.classList.add('selected');
+      });
+    }
+    calGrid.appendChild(el);
+  }
+
+  calc();
+</script>
+
+</body>
+</html>
