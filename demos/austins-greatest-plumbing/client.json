@@ -1,0 +1,53 @@
+{
+  "businessName": "Austin's Greatest Plumbing",
+  "trade": "plumbing",
+  "tradeLabel": "Instant plumbing estimate",
+  "phone": "(512) 377-9919",
+  "email": "austinsgreatestplumbing@gmail.com",
+  "address": "7915 Cameron Rd, Austin TX 78754",
+  "availability": "24/7 Emergency Service",
+  "accentColor": "#c07a3a",
+  "heroHeadline": "Get a <em>real price</em><br>before you let anyone in.",
+  "heroSub": "Pick your job type, answer two more questions, and get an honest repair range in under 60 seconds — no call required.",
+  "trustStats": [
+    { "value": "5.0", "suffix": "★", "label": "Google rating" },
+    { "value": "149", "suffix": "", "label": "Verified reviews" },
+    { "value": "24", "suffix": "/7", "label": "Emergency service" }
+  ],
+  "cardTitle": "Job Estimate",
+  "ticketPrefix": "TICKET #P-1147",
+  "jobLabel": "What's the job?",
+  "sizeLabel": "Property type",
+  "bookBtnLabel": "Book a Plumber",
+  "resultLabel": "Estimated repair range · Final quote confirmed on arrival",
+  "urgencyLabels": ["Can wait a few days", "Emergency — right now"],
+  "jobTypes": [
+    { "label": "Drain / Clog", "base": 150 },
+    { "label": "Leak Repair", "base": 420 },
+    { "label": "Water Heater", "base": 2400 }
+  ],
+  "sizeOptions": [
+    { "label": "Apartment", "mult": 0.8 },
+    { "label": "Single-Family", "mult": 1 },
+    { "label": "Large / Multi-Bath", "mult": 1.5 }
+  ],
+  "howHeadline": "No phone tag. Just a booked job.",
+  "steps": [
+    { "tag": "Describe", "title": "Pick your job type", "desc": "Select the job, your property type, and how urgent it is. No account needed, no sign-up. Works on any phone." },
+    { "tag": "Estimate", "title": "Get a real price range", "desc": "A genuine range based on Austin's Greatest Plumbing's own pricing — not a teaser. Know what to expect before anyone shows up." },
+    { "tag": "Book", "title": "Pick a time, we'll be there", "desc": "Choose a slot from the calendar and you're confirmed. You'll get a text reminder — no callbacks, no waiting on hold." }
+  ],
+  "galleryHeadline": "Jobs we've completed for Austin homeowners.",
+  "galleryItems": [
+    { "tag": "Leak repair" },
+    { "tag": "Water heater" },
+    { "tag": "Full repipe" },
+    { "tag": "Drain clear" }
+  ],
+  "bookingHeadline": "Pick a time.<br>We'll show up.",
+  "bookingSub": "Select an open slot from the calendar. You're confirmed instantly — no phone call needed to lock it in.",
+  "calMonth": "August 2026",
+  "calStartOffset": 6,
+  "calDays": 31,
+  "openDays": [3, 4, 7, 8, 10, 11, 14, 17, 18, 21, 24, 25, 28]
+}

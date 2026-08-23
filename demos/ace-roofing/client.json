@@ -1,0 +1,53 @@
+{
+  "businessName": "Ace Roofing Company",
+  "trade": "roofing",
+  "tradeLabel": "Instant roofing estimate",
+  "phone": "(512) 836-7663",
+  "email": "info@aceroofingtexas.com",
+  "address": "9705 Burnet Rd, Austin TX 78758",
+  "availability": "Mon–Fri 8:30AM–5:30PM",
+  "accentColor": "#2d6a9f",
+  "heroHeadline": "Get a <em>real estimate</em><br>before anyone gets on your roof.",
+  "heroSub": "Describe your roof issue, get an honest repair-or-replace range in under 60 seconds — no callback, no high-pressure sales visit required.",
+  "trustStats": [
+    { "value": "333", "suffix": "", "label": "Google reviews" },
+    { "value": "4.8", "suffix": "★", "label": "Average rating" },
+    { "value": "18", "suffix": "+", "label": "Years in Austin" }
+  ],
+  "cardTitle": "Roof Estimate",
+  "ticketPrefix": "TICKET #R-2047",
+  "jobLabel": "What's the issue?",
+  "sizeLabel": "Roof size (approx.)",
+  "bookBtnLabel": "Book a Roof Inspection",
+  "resultLabel": "Estimated cost range · Confirmed quote after on-site inspection",
+  "urgencyLabels": ["Can wait a few weeks", "Urgent — active leak"],
+  "jobTypes": [
+    { "label": "Roof Repair", "base": 850 },
+    { "label": "Storm / Hail Damage", "base": 2800 },
+    { "label": "Full Replacement", "base": 9500 }
+  ],
+  "sizeOptions": [
+    { "label": "Under 1,500 sq ft", "mult": 0.75 },
+    { "label": "1,500–2,500 sq ft", "mult": 1 },
+    { "label": "Over 2,500 sq ft", "mult": 1.5 }
+  ],
+  "howHeadline": "A real estimate before the sales visit.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what happened", "desc": "Pick the issue type, your roof size, and urgency. Takes under a minute — no account, no sign-up, works on any phone." },
+    { "tag": "Estimate", "title": "Get a repair vs replace range", "desc": "A genuine cost range based on Ace Roofing's own pricing — repair when repair makes sense, replace when it doesn't. No upsells." },
+    { "tag": "Book", "title": "Schedule a free inspection", "desc": "Pick a slot and a licensed Ace roofer shows up, confirms the scope, and gives you a final written quote. No pressure, no obligation." }
+  ],
+  "galleryHeadline": "Recent roofing jobs across Austin.",
+  "galleryItems": [
+    { "tag": "Storm damage" },
+    { "tag": "Shingle replace" },
+    { "tag": "Hail repair" },
+    { "tag": "Full re-roof" }
+  ],
+  "bookingHeadline": "Book a free<br>roof inspection.",
+  "bookingSub": "Pick a slot and one of our licensed roofers will come out, assess the damage, and give you a written quote — no obligation.",
+  "calMonth": "August 2026",
+  "calStartOffset": 6,
+  "calDays": 31,
+  "openDays": [3, 5, 6, 10, 12, 13, 17, 19, 20, 24, 26, 27, 31]
+}

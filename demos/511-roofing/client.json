@@ -1,0 +1,53 @@
+{
+  "businessName": "511 Roofing",
+  "trade": "roofing",
+  "tradeLabel": "Instant roofing estimate",
+  "phone": "(512) 947-4417",
+  "email": "info@511roofing.com",
+  "address": "Austin, TX · Round Rock · Cedar Park · Pflugerville",
+  "availability": "Available 24/7 for emergencies",
+  "accentColor": "#1a6b3c",
+  "heroHeadline": "Get a <em>straight answer</em><br>on what your roof will cost.",
+  "heroSub": "Carlos has been roofing Austin homes for 15+ years. Get an honest estimate in under 60 seconds — then book directly with him. No call centers, no pressure.",
+  "trustStats": [
+    { "value": "15", "suffix": "+", "label": "Years in Austin" },
+    { "value": "24", "suffix": "/7", "label": "Emergency response" },
+    { "value": "1", "suffix": "", "label": "Person you deal with" }
+  ],
+  "cardTitle": "Roof Estimate",
+  "ticketPrefix": "TICKET #R-511",
+  "jobLabel": "What do you need?",
+  "sizeLabel": "Roof size (approx.)",
+  "bookBtnLabel": "Book with Carlos",
+  "resultLabel": "Estimated cost range · Carlos confirms final quote on-site",
+  "urgencyLabels": ["Can wait", "Emergency — active leak"],
+  "jobTypes": [
+    { "label": "Roof Inspection", "base": 0 },
+    { "label": "Roof Repair", "base": 750 },
+    { "label": "Roof Replacement", "base": 8500 }
+  ],
+  "sizeOptions": [
+    { "label": "Under 1,500 sq ft", "mult": 0.75 },
+    { "label": "1,500–2,500 sq ft", "mult": 1 },
+    { "label": "Over 2,500 sq ft", "mult": 1.55 }
+  ],
+  "howHeadline": "Talk to Carlos directly.<br>No call centers.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what's going on", "desc": "Pick what you need, your roof size, and urgency. Takes under a minute — no account or sign-up needed." },
+    { "tag": "Estimate", "title": "Get an honest price range", "desc": "If your roof doesn't need replacing, Carlos will tell you. The estimate reflects that — no upsell, no inflated numbers." },
+    { "tag": "Book", "title": "Carlos comes to you", "desc": "Pick a slot and Carlos personally comes out, quotes the job, and tells you straight what needs doing. You deal with the owner, not a scheduler." }
+  ],
+  "galleryHeadline": "Austin roofing jobs, done right.",
+  "galleryItems": [
+    { "tag": "Leak repair" },
+    { "tag": "Shingle replace" },
+    { "tag": "Storm damage" },
+    { "tag": "Full re-roof" }
+  ],
+  "bookingHeadline": "Book Carlos<br>directly.",
+  "bookingSub": "Pick a time and Carlos will come out personally — same-day estimates available. You deal with the owner, not a receptionist.",
+  "calMonth": "August 2026",
+  "calStartOffset": 6,
+  "calDays": 31,
+  "openDays": [4, 5, 7, 11, 12, 14, 18, 19, 21, 25, 26, 28]
+}
