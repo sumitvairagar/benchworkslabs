@@ -339,7 +339,8 @@ footer{background:var(--charcoal);border-top:3px solid var(--accent);padding:36p
 
 <script>
 // ─── Load config and boot ──────────────────────────────────────────────────
-fetch('./client.json')
+const basePath = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+fetch(basePath + 'client.json')
   .then(r => r.json())
   .then(c => boot(c))
   .catch(() => {
