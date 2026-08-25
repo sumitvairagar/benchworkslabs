@@ -1,0 +1,53 @@
+{
+  "businessName": "Roland's Roofing",
+  "trade": "roofing",
+  "tradeLabel": "Instant roofing estimate",
+  "phone": "(210) 543-7663",
+  "email": "rolands.roofing1970@gmail.com",
+  "address": "6735 Low Bid Ln A, San Antonio, TX 78250",
+  "availability": "Mon–Fri 9AM–5PM · Emergency Saturdays",
+  "accentColor": "#8b1a1a",
+  "heroHeadline": "Get a <em>real roof estimate</em><br>before anyone knocks on your door.",
+  "heroSub": "Roland's has been roofing San Antonio homes since 1970. Pick your issue, get an honest cost range in under 60 seconds — no sales visit required.",
+  "trustStats": [
+    { "value": "53", "suffix": "+", "label": "Years in San Antonio" },
+    { "value": "4.9", "suffix": "★", "label": "Google rating" },
+    { "value": "GAF", "suffix": "", "label": "Master Elite certified" }
+  ],
+  "cardTitle": "Roof Estimate",
+  "ticketPrefix": "TICKET #R-1970",
+  "jobLabel": "What's the issue?",
+  "sizeLabel": "Roof size (approx.)",
+  "bookBtnLabel": "Book a Free Inspection",
+  "resultLabel": "Estimated cost range · Written quote confirmed after free inspection",
+  "urgencyLabels": ["Can wait a few weeks", "Urgent — active leak"],
+  "jobTypes": [
+    { "label": "Roof Repair", "base": 900 },
+    { "label": "Storm / Hail Damage", "base": 3200 },
+    { "label": "Full Replacement", "base": 10000 }
+  ],
+  "sizeOptions": [
+    { "label": "Under 1,500 sq ft", "mult": 0.75 },
+    { "label": "1,500–2,500 sq ft", "mult": 1 },
+    { "label": "Over 2,500 sq ft", "mult": 1.55 }
+  ],
+  "howHeadline": "Know the number before the sales visit.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what's going on", "desc": "Pick your issue type, roof size, and urgency. Takes under a minute — no account, no sign-up, works on any phone." },
+    { "tag": "Estimate", "title": "Get an honest price range", "desc": "A real range based on Roland's own pricing — repair when repair makes sense, replace when it doesn't. 53 years of straight answers." },
+    { "tag": "Book", "title": "Schedule a free inspection", "desc": "Pick a slot and a Roland's roofer comes out, inspects the roof, and gives you a written quote. No pressure. No obligation." }
+  ],
+  "galleryHeadline": "San Antonio roofs we've replaced and repaired.",
+  "galleryItems": [
+    { "tag": "Storm damage" },
+    { "tag": "Shingle re-roof" },
+    { "tag": "Hail repair" },
+    { "tag": "Metal roof" }
+  ],
+  "bookingHeadline": "Book a free<br>roof inspection.",
+  "bookingSub": "Pick a slot and a Roland's roofer will come out, assess the damage, and give you a written quote — no obligation, no pressure.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [1, 2, 4, 8, 9, 11, 15, 16, 18, 22, 23, 25, 29, 30]
+}
