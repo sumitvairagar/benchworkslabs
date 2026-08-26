@@ -1,0 +1,54 @@
+{
+  "businessName": "Smith & Sons Plumbing",
+  "trade": "plumbing",
+  "tradeLabel": "Instant plumbing estimate",
+  "phone": "(210) 338-0046",
+  "email": "Peter@smithandsonstx.com",
+  "address": "San Antonio, TX",
+  "availability": "Call or text Peter directly",
+  "accentColor": "#1a4a1a",
+  "heroHeadline": "Get a <em>straight answer</em><br>on what it's going to cost.",
+  "heroSub": "Family-owned, no corporate BS. Pick your issue, get an honest price range in under 60 seconds — then book Peter's crew directly.",
+  "trustStats": [
+    { "value": "4.9", "suffix": "★", "label": "Google rating" },
+    { "value": "156", "suffix": "", "label": "Verified reviews" },
+    { "value": "20", "suffix": "+", "label": "Years experience" }
+  ],
+  "cardTitle": "Job Estimate",
+  "ticketPrefix": "TICKET #S-2026",
+  "jobLabel": "What's pissing you off?",
+  "sizeLabel": "Property type",
+  "bookBtnLabel": "Book Smith & Sons",
+  "resultLabel": "Estimated repair range · Peter gives you options before any work starts",
+  "urgencyLabels": ["Can wait a few days", "Needs fixing today"],
+  "jobTypes": [
+    { "label": "Drain / Clog", "base": 160 },
+    { "label": "Leak Detection", "base": 380 },
+    { "label": "Water Heater", "base": 1700 },
+    { "label": "Slab Leak", "base": 3600 }
+  ],
+  "sizeOptions": [
+    { "label": "Apartment / Condo", "mult": 0.8 },
+    { "label": "Single-Family", "mult": 1 },
+    { "label": "Large / Multi-Bath", "mult": 1.5 }
+  ],
+  "howHeadline": "We show up, explain what we found,<br>and give you options.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what's happening", "desc": "You don't need to know the plumbing term. Pick what's wrong, property type, and urgency — takes under a minute." },
+    { "tag": "Estimate", "title": "Get an honest price range", "desc": "Smith & Sons explains everything before starting work. This tool gives you a ballpark so there are no surprises when we show up." },
+    { "tag": "Book", "title": "Pick a time", "desc": "Choose a slot and you're confirmed — no hold music, no callbacks, no being transferred to a call center." }
+  ],
+  "galleryHeadline": "San Antonio plumbing jobs, done right.",
+  "galleryItems": [
+    { "tag": "Slab leak" },
+    { "tag": "Water heater" },
+    { "tag": "Sewer repair" },
+    { "tag": "Drain clear" }
+  ],
+  "bookingHeadline": "Book Peter's crew<br>directly.",
+  "bookingSub": "Pick a time and Smith & Sons shows up — clean, on time, and ready to explain what they found before touching anything.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [2, 3, 5, 9, 10, 12, 16, 17, 19, 23, 24, 26, 29, 30]
+}

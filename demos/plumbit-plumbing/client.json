@@ -1,0 +1,54 @@
+{
+  "businessName": "Plumbit Plumbing Services",
+  "trade": "plumbing",
+  "tradeLabel": "Instant plumbing estimate",
+  "phone": "(210) 984-0058",
+  "email": "Info@plumbitplumbingservices.com",
+  "address": "San Antonio, TX",
+  "availability": "Call or text anytime",
+  "accentColor": "#1a5276",
+  "heroHeadline": "Get a <em>real price</em><br>before you let anyone in.",
+  "heroSub": "Pick your job type, answer two quick questions, and get an honest repair range in under 60 seconds — no call required.",
+  "trustStats": [
+    { "value": "5.0", "suffix": "★", "label": "Google rating" },
+    { "value": "593", "suffix": "", "label": "Verified reviews" },
+    { "value": "30", "suffix": "+", "label": "Years experience" }
+  ],
+  "cardTitle": "Job Estimate",
+  "ticketPrefix": "TICKET #P-2026",
+  "jobLabel": "What's the job?",
+  "sizeLabel": "Property type",
+  "bookBtnLabel": "Book a Plumber",
+  "resultLabel": "Estimated repair range · Final quote confirmed on arrival",
+  "urgencyLabels": ["Can wait a few days", "Emergency — right now"],
+  "jobTypes": [
+    { "label": "Drain / Clog", "base": 160 },
+    { "label": "Water Softener", "base": 850 },
+    { "label": "Water Heater", "base": 1800 },
+    { "label": "Slab Leak", "base": 3500 }
+  ],
+  "sizeOptions": [
+    { "label": "Apartment", "mult": 0.8 },
+    { "label": "Single-Family", "mult": 1 },
+    { "label": "Large / Multi-Bath", "mult": 1.5 }
+  ],
+  "howHeadline": "No phone tag. Just a booked job.",
+  "steps": [
+    { "tag": "Describe", "title": "Pick your job type", "desc": "Select the job, property type, and urgency. No account, no sign-up — works on any phone in under a minute." },
+    { "tag": "Estimate", "title": "Get an honest price range", "desc": "A real range based on Plumbit's own pricing — not a teaser number. Know what to expect before anyone shows up." },
+    { "tag": "Book", "title": "Pick a time, we'll be there", "desc": "Choose a slot and you're confirmed. No callbacks, no hold music, no waiting." }
+  ],
+  "galleryHeadline": "Jobs we've completed for San Antonio homeowners.",
+  "galleryItems": [
+    { "tag": "Water softener" },
+    { "tag": "Water heater" },
+    { "tag": "Slab leak repair" },
+    { "tag": "Drain clear" }
+  ],
+  "bookingHeadline": "Pick a time.<br>We'll show up.",
+  "bookingSub": "Select an open slot. You're confirmed instantly — no callback needed to lock it in.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [2, 3, 5, 9, 10, 12, 16, 17, 19, 23, 24, 26, 29, 30]
+}
