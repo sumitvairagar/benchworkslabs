@@ -1,0 +1,53 @@
+{
+  "businessName": "All About Air Conditioning & Heating",
+  "trade": "hvac",
+  "tradeLabel": "Instant AC & heating estimate",
+  "phone": "(210) 274-1088",
+  "email": "samantha@allaboutacandheating.com",
+  "address": "1118 Waverly Ave, San Antonio, TX 78201",
+  "availability": "24/7 emergency service",
+  "accentColor": "#1a6b3c",
+  "heroHeadline": "Know what it costs<br>before the <em>AC gets opened up</em>.",
+  "heroSub": "Tell us what your system is doing, get an honest repair-or-replace range in under 60 seconds — no callback, no waiting on a quote.",
+  "trustStats": [
+    { "value": "294", "suffix": "", "label": "Google reviews" },
+    { "value": "5.0", "suffix": "★", "label": "Average rating" },
+    { "value": "24/7", "suffix": "", "label": "Emergency service" }
+  ],
+  "cardTitle": "AC & Heating Estimate",
+  "ticketPrefix": "TICKET #H-4082",
+  "jobLabel": "What's the system doing?",
+  "sizeLabel": "Home size (approx.)",
+  "bookBtnLabel": "Book a Service Call",
+  "resultLabel": "Estimated cost range · Final price confirmed on site before work starts",
+  "urgencyLabels": ["Can wait a few days", "No cooling — today"],
+  "jobTypes": [
+    { "label": "AC Repair", "base": 350 },
+    { "label": "Coil / Ductwork Replace", "base": 1800 },
+    { "label": "Full System Replace", "base": 8000 }
+  ],
+  "sizeOptions": [
+    { "label": "Condo / Under 1,200 sq ft", "mult": 0.75 },
+    { "label": "1,200–2,400 sq ft", "mult": 1 },
+    { "label": "Over 2,400 sq ft", "mult": 1.5 }
+  ],
+  "howHeadline": "A real number before the truck rolls.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what's wrong", "desc": "Blowing warm, not turning on, leaking, or heat that won't fire — pick the symptom, your home size, and how urgent it is. Under a minute, no sign-up, works on any phone." },
+    { "tag": "Estimate", "title": "See repair vs replace", "desc": "An honest range built on All About Air's own pricing — repair when a repair makes sense, replacement when the system is past it. No lead-gen teaser number." },
+    { "tag": "Book", "title": "Pick your service window", "desc": "Choose a time from real availability and a certified tech shows up, confirms the diagnosis, and gives you the final price before any work starts." }
+  ],
+  "galleryHeadline": "Recent work across San Antonio.",
+  "galleryItems": [
+    { "tag": "AC repair" },
+    { "tag": "System install" },
+    { "tag": "Ductwork" },
+    { "tag": "Heating service" }
+  ],
+  "bookingHeadline": "Pick a time.<br>We'll be out.",
+  "bookingSub": "Real availability from the schedule — select a window and you're confirmed. No callback, no waiting to hear back.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [3, 4, 8, 9, 11, 12, 15, 17, 18, 22, 24, 25, 29]
+}
