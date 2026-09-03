@@ -1,0 +1,53 @@
+{
+  "businessName": "Classic Services Air Conditioning & Heating",
+  "trade": "hvac",
+  "tradeLabel": "Instant AC & heating estimate",
+  "phone": "(210) 361-4020",
+  "email": "service@classicairtx.com",
+  "address": "900 NE Interstate 410 Loop, Suite E118, San Antonio, TX 78209",
+  "availability": "Serving San Antonio for 21 years",
+  "accentColor": "#1a6b3c",
+  "heroHeadline": "Get a price and a time slot<br><em>before the house gets hot</em>.",
+  "heroSub": "Tell us what your system is doing, see an honest repair-or-replace range in under 60 seconds, then pick your service window — no contact form, no waiting on a callback.",
+  "trustStats": [
+    { "value": "5.0", "suffix": "★", "label": "Average rating" },
+    { "value": "21", "suffix": "", "label": "Years in business" },
+    { "value": "3rd", "suffix": "", "label": "Generation family-owned" }
+  ],
+  "cardTitle": "AC & Heating Estimate",
+  "ticketPrefix": "TICKET #H-2109",
+  "jobLabel": "What's the system doing?",
+  "sizeLabel": "Home size (approx.)",
+  "bookBtnLabel": "Book a Service Call",
+  "resultLabel": "Estimated cost range · Final price confirmed on site before any work starts",
+  "urgencyLabels": ["Can wait until next week", "No cooling right now"],
+  "jobTypes": [
+    { "label": "AC Repair", "base": 385 },
+    { "label": "Coil / Ductwork Replace", "base": 2200 },
+    { "label": "Full System Replace", "base": 8800 }
+  ],
+  "sizeOptions": [
+    { "label": "Condo / Under 1,200 sq ft", "mult": 0.75 },
+    { "label": "1,200–2,400 sq ft", "mult": 1 },
+    { "label": "Over 2,400 sq ft", "mult": 1.5 }
+  ],
+  "howHeadline": "A real number and a real time slot, before anyone picks up a phone.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what it's doing", "desc": "Blowing warm, tripping the breaker, leaking water, or a furnace that won't fire — pick the symptom, your home size, and how soon you need someone. Under a minute, no sign-up, works on any phone." },
+    { "tag": "Estimate", "title": "See repair vs replace", "desc": "An honest range built on Classic Services' own pricing — a repair when a repair is the right call, a replacement when the system is genuinely past it. Not a teaser number to get a tech in the door." },
+    { "tag": "Book", "title": "Pick your service window", "desc": "Choose a slot from the real schedule and you're confirmed on the spot. A licensed tech shows up, confirms the diagnosis, and gives you the final price before any work starts." }
+  ],
+  "galleryHeadline": "Recent AC and heating work across San Antonio.",
+  "galleryItems": [
+    { "tag": "AC repair" },
+    { "tag": "System install" },
+    { "tag": "Ductwork" },
+    { "tag": "Heating service" }
+  ],
+  "bookingHeadline": "Pick a window.<br>You're booked.",
+  "bookingSub": "Real availability straight from the schedule — choose a time and it's confirmed. No contact form, no callback, no wondering whether anyone got the message.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [4, 8, 9, 11, 14, 15, 17, 19, 21, 22, 24, 25, 28, 30]
+}

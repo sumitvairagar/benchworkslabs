@@ -1,0 +1,53 @@
+{
+  "businessName": "Bell Electric LLC",
+  "trade": "electrical",
+  "tradeLabel": "Instant electrical estimate",
+  "phone": "(210) 422-5547",
+  "email": "info@bellelectricsa.com",
+  "address": "1731 S San Marcos #734A, San Antonio, TX 78207",
+  "availability": "Serving San Antonio & surrounding areas",
+  "accentColor": "#8b6914",
+  "heroHeadline": "Know the price<br>before anyone <em>opens your panel</em>.",
+  "heroSub": "Tell us what's not working, get an honest cost range in under 60 seconds — no callback, no waiting on a quote.",
+  "trustStats": [
+    { "value": "Licensed", "suffix": "", "label": "& insured" },
+    { "value": "San Antonio", "suffix": "", "label": "Service area" },
+    { "value": "60", "suffix": "sec", "label": "To a real estimate" }
+  ],
+  "cardTitle": "Electrical Estimate",
+  "ticketPrefix": "TICKET #E-3160",
+  "jobLabel": "What do you need done?",
+  "sizeLabel": "Home size (approx.)",
+  "bookBtnLabel": "Book an Electrician",
+  "resultLabel": "Estimated cost range · Final price confirmed on site before work starts",
+  "urgencyLabels": ["Can wait a few days", "No power — today"],
+  "jobTypes": [
+    { "label": "Outlet, Switch & GFCI Repair", "base": 240 },
+    { "label": "New Circuit / EV Charger", "base": 1200 },
+    { "label": "Panel Upgrade", "base": 3200 }
+  ],
+  "sizeOptions": [
+    { "label": "Condo / Under 1,200 sq ft", "mult": 0.75 },
+    { "label": "1,200–2,400 sq ft", "mult": 1 },
+    { "label": "Over 2,400 sq ft", "mult": 1.5 }
+  ],
+  "howHeadline": "A real number before the truck rolls.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what's happening", "desc": "Dead outlets, a breaker that keeps tripping, a panel that's past it, or a charger you want wired in — pick the job, your home size, and how urgent it is. Under a minute, no sign-up, works on any phone." },
+    { "tag": "Estimate", "title": "See a real cost range", "desc": "An honest range built on Bell Electric's own pricing — a repair when a repair is all it needs, an upgrade when the wiring is genuinely past safe. No lead-gen teaser number." },
+    { "tag": "Book", "title": "Pick your service window", "desc": "Choose a time from real availability and a licensed electrician shows up, confirms the scope, and gives you the final price before any work starts." }
+  ],
+  "galleryHeadline": "Recent electrical work across San Antonio.",
+  "galleryItems": [
+    { "tag": "Panel upgrade" },
+    { "tag": "EV charger" },
+    { "tag": "Rewiring" },
+    { "tag": "Lighting install" }
+  ],
+  "bookingHeadline": "Pick a time.<br>We'll be out.",
+  "bookingSub": "Real availability from the schedule — select a window and you're confirmed. No callback, no waiting to hear back.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [2, 3, 8, 9, 10, 14, 16, 17, 19, 22, 23, 25, 29]
+}

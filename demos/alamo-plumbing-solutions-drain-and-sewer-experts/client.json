@@ -1,0 +1,53 @@
+{
+  "businessName": "Alamo Plumbing Solutions",
+  "trade": "plumbing",
+  "tradeLabel": "Instant drain & sewer estimate",
+  "phone": "(210) 670-5325",
+  "email": "admin@alamoplumbingsolutions.com",
+  "address": "126 El Mio Dr, San Antonio, TX 78216",
+  "availability": "Serving San Antonio & surrounding areas",
+  "accentColor": "#c07a3a",
+  "heroHeadline": "Find out what that <em>backed-up drain</em><br>costs to fix.",
+  "heroSub": "Tell us what's backing up, get an honest price range in under 60 seconds, and pick your slot — no callback, no waiting for someone to phone you with a window.",
+  "trustStats": [
+    { "value": "Drain", "suffix": " & sewer", "label": "What we specialize in" },
+    { "value": "Licensed", "suffix": "", "label": "& insured in Texas" },
+    { "value": "San Antonio", "suffix": "", "label": "Local, in-house crews" }
+  ],
+  "cardTitle": "Drain & Sewer Estimate",
+  "ticketPrefix": "TICKET #DS-2118",
+  "jobLabel": "What's going on?",
+  "sizeLabel": "Property type",
+  "bookBtnLabel": "Book a Drain Tech",
+  "resultLabel": "Estimated range · Final quote confirmed after camera inspection",
+  "urgencyLabels": ["Slow drain, can wait", "Backing up right now"],
+  "jobTypes": [
+    { "label": "Drain Clearing", "base": 195 },
+    { "label": "Hydro Jetting + Camera", "base": 650 },
+    { "label": "Sewer Line Replacement", "base": 4800 }
+  ],
+  "sizeOptions": [
+    { "label": "Apartment / Condo", "mult": 0.8 },
+    { "label": "Single-Family", "mult": 1 },
+    { "label": "Large / Multi-Bath", "mult": 1.5 }
+  ],
+  "howHeadline": "From backed up to booked, without the phone tag.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what's backing up", "desc": "Kitchen sink, main line, or a sewer smell in the yard — pick the job, your property type, and how fast you need someone. Under a minute, no account, works on any phone." },
+    { "tag": "Estimate", "title": "See the number before we dig", "desc": "A genuine range built on Alamo Plumbing Solutions' own drain and sewer pricing — clearing, jetting, or a full line replacement. Not a teaser number, and nothing on the invoice you didn't see first." },
+    { "tag": "Book", "title": "Pick a slot, we bring the camera", "desc": "Choose an open time and you're confirmed on the spot. A tech arrives, scopes the line, and confirms the final price before any work starts." }
+  ],
+  "galleryHeadline": "Recent drain and sewer work across San Antonio.",
+  "galleryItems": [
+    { "tag": "Main line clearing" },
+    { "tag": "Hydro jetting" },
+    { "tag": "Sewer camera" },
+    { "tag": "Line replacement" }
+  ],
+  "bookingHeadline": "Pick a time.<br>We'll bring the camera.",
+  "bookingSub": "Choose an open slot and you're confirmed instantly — no callback needed to lock it in.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [4, 8, 9, 11, 14, 15, 17, 18, 21, 23, 24, 26, 29, 30]
+}

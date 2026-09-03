@@ -1,0 +1,53 @@
+{
+  "businessName": "J. R.'s Plumbing",
+  "trade": "plumbing",
+  "tradeLabel": "Instant plumbing estimate",
+  "phone": "(210) 731-8433",
+  "email": "service@jrsplumbing.net",
+  "address": "1039 Fresno St, San Antonio, TX 78201",
+  "availability": "Serving San Antonio since 1980",
+  "accentColor": "#c07a3a",
+  "heroHeadline": "Know the price<br>before <em>anyone</em> touches a pipe.",
+  "heroSub": "Tell us what's leaking, backing up or not heating and you'll have an honest San Antonio price range in under a minute — then pick a time that works.",
+  "trustStats": [
+    { "value": "45", "suffix": "+", "label": "Years in San Antonio (est. 1980)" },
+    { "value": "M13371", "suffix": "", "label": "TX Master Plumber license" },
+    { "value": "PHCC", "suffix": "", "label": "Member contractor" }
+  ],
+  "cardTitle": "Job Estimate",
+  "ticketPrefix": "TICKET #JR-1980",
+  "jobLabel": "What's going on?",
+  "sizeLabel": "Property type",
+  "bookBtnLabel": "Book J. R.'s Plumbing",
+  "resultLabel": "Estimated range · Final price confirmed on site before any work starts",
+  "urgencyLabels": ["Can wait a few days", "Water's running now"],
+  "jobTypes": [
+    { "label": "Drain / Clog", "base": 225 },
+    { "label": "Water Heater Replacement", "base": 1750 },
+    { "label": "Sewer Line / Repipe", "base": 4200 }
+  ],
+  "sizeOptions": [
+    { "label": "Apartment / Condo", "mult": 0.75 },
+    { "label": "Single-Family", "mult": 1 },
+    { "label": "Large / Multi-Bath or Commercial", "mult": 1.5 }
+  ],
+  "howHeadline": "Forty-five years of San Antonio plumbing,<br>now with the price up front.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what's wrong", "desc": "You don't need the plumbing word for it. Pick the problem, your property type, and how fast you need someone — under a minute, on any phone." },
+    { "tag": "Estimate", "title": "See a real price range", "desc": "The range comes from J. R.'s own pricing for drain work, water heaters and sewer lines — not a national average, and not a number invented on the spot." },
+    { "tag": "Book", "title": "Pick your slot", "desc": "Choose an open day and you're on the schedule. No estimate request form, no waiting on a callback that may come tomorrow." }
+  ],
+  "galleryHeadline": "Plumbing work across San Antonio since 1980.",
+  "galleryItems": [
+    { "tag": "Drain cleaning" },
+    { "tag": "Water heater" },
+    { "tag": "Sewer line" },
+    { "tag": "Whole-house repipe" }
+  ],
+  "bookingHeadline": "Pick a day.<br>You're on the schedule.",
+  "bookingSub": "Choose an open slot and a licensed J. R.'s plumber is booked for it — no request form, no waiting to hear back.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [4, 8, 9, 10, 14, 15, 17, 18, 19, 22, 23, 25, 29, 30]
+}
