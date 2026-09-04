@@ -213,6 +213,11 @@ footer{background:var(--charcoal);border-top:3px solid var(--accent);padding:36p
   footer{flex-direction:column;align-items:flex-start;gap:14px;padding:28px 4vw;}
 }
 </style>
+<!-- Vercel Web Analytics. Each demo has its own URL and that URL went to exactly
+     one prospect, so a pageview is proof that a named business opened the email
+     and clicked through. Without this, silence is unreadable. -->
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -340,6 +345,19 @@ footer{background:var(--charcoal);border-top:3px solid var(--accent);padding:36p
 <script>
 // ─── Load config and boot ──────────────────────────────────────────────────
 const basePath = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+
+// ─── Funnel tracking ───────────────────────────────────────────────────────
+// Fires at most once per event per pageview: calc() runs on every slider tick,
+// and we want "this prospect priced a job", not a count of slider movements.
+const DEMO_SLUG = basePath.split('/').filter(Boolean).pop() || 'unknown';
+const _fired = new Set();
+function track(name, data){
+  if (_fired.has(name)) return;
+  _fired.add(name);
+  try { window.va('event', { name: name, data: Object.assign({ demo: DEMO_SLUG }, data || {}) }); } catch (e) {}
+}
+// Distinguishes "opened and closed instantly" from "actually read it".
+setTimeout(function(){ if (document.visibilityState === 'visible') track('dwell_15s'); }, 15000);
 fetch(basePath + 'client.json')
   .then(r => r.json())
   .then(c => boot(c))
@@ -394,7 +412,7 @@ function boot(c){
     b.className = 'chip' + (i===0?' active':'');
     b.dataset.base = j.base;
     b.textContent = j.label;
-    b.addEventListener('click', () => { setActive(jobRow.querySelectorAll('.chip'), b); calc(); });
+    b.addEventListener('click', () => { setActive(jobRow.querySelectorAll('.chip'), b); track('quote_priced'); calc(); });
     jobRow.appendChild(b);
   });
 
@@ -405,11 +423,11 @@ function boot(c){
     b.className = 'chip' + (i===0?' active':'');
     b.dataset.mult = s.mult;
     b.textContent = s.label;
-    b.addEventListener('click', () => { setActive(sizeRow.querySelectorAll('.chip'), b); calc(); });
+    b.addEventListener('click', () => { setActive(sizeRow.querySelectorAll('.chip'), b); track('quote_priced'); calc(); });
     sizeRow.appendChild(b);
   });
 
-  document.getElementById('urgency').addEventListener('input', calc);
+  document.getElementById('urgency').addEventListener('input', () => { track('quote_priced'); calc(); });
   calc();
 
   // How it works
@@ -507,6 +525,8 @@ function buildCalendar(openDays, startOffset, totalDays, monthLabel){
         const btn=document.getElementById('confirmBtn');
         btn.textContent='Confirm '+label+' →';
         btn.classList.add('ready');
+        track('slot_selected');
+        btn.onclick = function(){ track('booking_confirmed'); };
       });
     }
     grid.appendChild(el);
