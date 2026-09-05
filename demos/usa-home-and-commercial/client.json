@@ -1,0 +1,53 @@
+{
+  "businessName": "USA Home & Commercial",
+  "trade": "roofing",
+  "tradeLabel": "Instant roofing estimate",
+  "phone": "(210) 935-8444",
+  "email": "info@usahome-roof.com",
+  "address": "10221 Desert Sands St Ste 204, San Antonio TX 78216 · Serving San Antonio & Austin",
+  "availability": "Residential & commercial roofing · Free inspections",
+  "accentColor": "#2d6a9f",
+  "heroHeadline": "Know the <em>real number</em><br>before anyone climbs on your roof.",
+  "heroSub": "Pick your issue, your roof size and how urgent it is — you'll have an honest cost range from a GAF Master Elite contractor in under 60 seconds, no sales visit first.",
+  "trustStats": [
+    { "value": "20", "suffix": "+", "label": "Years in business" },
+    { "value": "GAF", "suffix": "", "label": "Master Elite certified" },
+    { "value": "5,000", "suffix": "+", "label": "Projects completed" }
+  ],
+  "cardTitle": "Roof Estimate",
+  "ticketPrefix": "TICKET #R-8216",
+  "jobLabel": "What's going on with the roof?",
+  "sizeLabel": "Roof size (approx.)",
+  "bookBtnLabel": "Book a Free Roof Inspection",
+  "resultLabel": "Estimated cost range · Written quote confirmed after on-site inspection",
+  "urgencyLabels": ["Can wait a few weeks", "Urgent — water coming in"],
+  "jobTypes": [
+    { "label": "Roof Leak / Repair", "base": 950 },
+    { "label": "Storm & Hail Damage", "base": 3800 },
+    { "label": "Full Roof Replacement", "base": 12000 }
+  ],
+  "sizeOptions": [
+    { "label": "Under 1,500 sq ft", "mult": 0.75 },
+    { "label": "1,500–2,500 sq ft", "mult": 1 },
+    { "label": "Over 2,500 sq ft / commercial", "mult": 1.5 }
+  ],
+  "howHeadline": "A real range first.<br>The inspection second.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what the roof is doing", "desc": "Pick the issue, your roof size and how urgent it is. Under a minute, no account, no sign-up — works on any phone from the driveway." },
+    { "tag": "Estimate", "title": "See repair vs replacement", "desc": "A genuine range built on USA Home & Commercial's own pricing — a patch when a patch will hold, a full GAF or FORTIFIED replacement when it won't. No upsell." },
+    { "tag": "Book", "title": "Lock in a free inspection", "desc": "Pick a slot and a USA Home & Commercial roofer comes out, walks the roof, confirms the scope and leaves you a written quote. No obligation." }
+  ],
+  "galleryHeadline": "Roofs replaced and repaired across San Antonio & Austin.",
+  "galleryItems": [
+    { "tag": "Hail damage" },
+    { "tag": "Shingle re-roof" },
+    { "tag": "Commercial flat roof" },
+    { "tag": "FORTIFIED roof" }
+  ],
+  "bookingHeadline": "Book a free<br>roof inspection.",
+  "bookingSub": "Pick a slot and one of our roofers comes out, assesses the damage and gives you a written quote — no obligation, no pressure.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [8, 9, 10, 12, 15, 16, 18, 19, 22, 23, 25, 28, 29]
+}

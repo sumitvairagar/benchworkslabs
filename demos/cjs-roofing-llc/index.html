@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading…</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --accent:#c07a3a;
+  --accent-bright:#d98c48;
+  --accent-dim:#e8d5bf;
+  --ink:#1a1410;
+  --ink-soft:#4a3f35;
+  --cream:#faf7f2;
+  --cream2:#f2ece2;
+  --white:#ffffff;
+  --muted:#8a7d70;
+  --border:#e2d8cc;
+  --charcoal:#1e2329;
+  --charcoal-soft:#252c34;
+  --font-head:'Bebas Neue',sans-serif;
+  --font-body:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--cream);color:var(--ink);line-height:1.6;}
+
+/* LOADING */
+#loader{
+  position:fixed;inset:0;background:var(--charcoal);
+  display:flex;align-items:center;justify-content:center;
+  z-index:999;transition:opacity .4s;
+}
+#loader.hidden{opacity:0;pointer-events:none;}
+.loader-dot{
+  width:10px;height:10px;border-radius:50%;background:var(--accent);
+  margin:0 5px;animation:bounce .8s ease-in-out infinite;
+}
+.loader-dot:nth-child(2){animation-delay:.15s;}
+.loader-dot:nth-child(3){animation-delay:.3s;}
+@keyframes bounce{0%,80%,100%{transform:scale(0.6);opacity:.4;}40%{transform:scale(1);opacity:1;}}
+
+/* NAV */
+nav{
+  position:sticky;top:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 5vw;
+  background:var(--charcoal);
+  border-bottom:3px solid var(--accent);
+}
+.brand{display:flex;align-items:center;gap:14px;}
+.brand-icon{
+  width:36px;height:36px;background:var(--accent);flex-shrink:0;
+  clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+}
+.brand-name{font-family:var(--font-head);font-size:20px;letter-spacing:0.05em;color:#fff;line-height:1.1;}
+.brand-addr{font-size:11px;color:#8a9aaa;letter-spacing:0.04em;margin-top:1px;}
+.call-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:11px 24px;background:var(--accent);color:#fff;
+  font-family:var(--font-head);font-size:16px;letter-spacing:0.06em;
+  text-decoration:none;transition:background .2s;
+  clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));
+}
+.call-btn:hover{background:var(--accent-bright);}
+.demo-badge{font-family:var(--font-body);font-size:9px;letter-spacing:0.14em;color:var(--accent);border:1px solid;padding:4px 10px;text-transform:uppercase;white-space:nowrap;}
+
+/* HERO */
+#hero{background:var(--charcoal);padding:60px 5vw 0;overflow:hidden;}
+.hero-inner{
+  max-width:1160px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;
+}
+.hero-eyebrow{font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;}
+.hero-h1{
+  font-family:var(--font-head);
+  font-size:clamp(48px,5.5vw,76px);
+  letter-spacing:0.03em;line-height:.95;
+  color:#fff;margin-bottom:20px;
+}
+.hero-h1 em{color:var(--accent);font-style:normal;}
+.hero-sub{font-size:16px;color:#8a9aaa;line-height:1.7;font-weight:300;max-width:42ch;margin-bottom:32px;}
+.trust-row{display:flex;gap:36px;flex-wrap:wrap;padding-bottom:48px;}
+.trust-num{font-family:var(--font-head);font-size:34px;letter-spacing:0.04em;color:#fff;line-height:1;}
+.trust-num em{color:var(--accent);font-style:normal;}
+.trust-label{font-size:11px;color:#6a7a8a;letter-spacing:0.06em;margin-top:2px;}
+
+/* ESTIMATE CARD */
+.estimate-card{background:var(--white);box-shadow:0 -8px 60px rgba(0,0,0,0.3);padding:32px;position:relative;}
+.estimate-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent);}
+.card-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;margin-bottom:24px;border-bottom:2px solid var(--border);}
+.card-title{font-family:var(--font-head);font-size:22px;letter-spacing:0.05em;color:var(--ink);}
+.card-id{font-size:11px;color:var(--muted);letter-spacing:0.1em;}
+.field{margin-bottom:20px;}
+.field-label{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;font-weight:500;}
+.chip-row{display:flex;gap:8px;flex-wrap:wrap;}
+.chip{
+  font-size:13px;padding:9px 16px;
+  background:var(--cream);border:1.5px solid var(--border);
+  color:var(--ink-soft);cursor:pointer;
+  transition:all .15s;font-family:var(--font-body);font-weight:400;
+  -webkit-tap-highlight-color:transparent;min-height:40px;
+}
+.chip:hover{border-color:var(--accent);color:var(--accent);}
+.chip.active{background:var(--charcoal);border-color:var(--charcoal);color:#fff;}
+input[type=range]{
+  width:100%;height:4px;-webkit-appearance:none;appearance:none;
+  background:var(--border);outline:none;border-radius:2px;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:22px;height:22px;
+  border-radius:50%;background:var(--accent);cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,0.2);
+}
+.range-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);letter-spacing:0.08em;margin-top:6px;text-transform:uppercase;}
+.breakdown{border:1.5px solid var(--border);margin:20px 0;}
+.b-row{display:flex;justify-content:space-between;padding:9px 14px;font-size:13px;border-bottom:1px solid var(--border);color:var(--ink-soft);}
+.b-row:last-child{border-bottom:none;}
+.b-row span:last-child{font-weight:500;color:var(--ink);}
+.result-box{background:var(--charcoal);padding:20px;text-align:center;margin-bottom:14px;}
+.result-range{font-family:var(--font-head);font-size:44px;letter-spacing:0.04em;color:var(--accent);transition:opacity .3s,transform .3s;}
+.result-label{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:#6a7a8a;margin-top:4px;}
+.book-btn{
+  width:100%;padding:16px;background:var(--accent);color:#fff;border:none;
+  font-family:var(--font-head);font-size:20px;letter-spacing:0.08em;
+  cursor:pointer;transition:background .2s,transform .2s;
+  clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));
+}
+.book-btn:hover{background:var(--accent-bright);transform:translateY(-1px);}
+
+/* HOW IT WORKS */
+#how{padding:88px 5vw;background:var(--cream2);}
+.section-label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:500;}
+.section-h2{font-family:var(--font-head);font-size:clamp(34px,4vw,52px);letter-spacing:0.03em;line-height:1;margin-bottom:48px;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.step{background:var(--white);padding:32px 28px;border-top:3px solid transparent;transition:border-color .25s,transform .25s;}
+.step:hover{border-color:var(--accent);transform:translateY(-3px);}
+.step-num{font-size:11px;letter-spacing:0.16em;color:var(--accent);margin-bottom:14px;font-weight:500;}
+.step-title{font-family:var(--font-head);font-size:24px;letter-spacing:0.04em;margin-bottom:10px;}
+.step-desc{font-size:14px;color:var(--ink-soft);line-height:1.75;font-weight:300;}
+
+/* GALLERY */
+#gallery{padding:88px 5vw;background:var(--charcoal);}
+#gallery .section-label{color:var(--accent);}
+#gallery .section-h2{color:#fff;}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px;}
+.job-card{aspect-ratio:4/5;background:var(--charcoal-soft);border:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden;transition:transform .25s,border-color .25s;}
+.job-card:hover{transform:translateY(-4px);border-color:var(--accent);}
+.job-card-bg{position:absolute;inset:0;opacity:.35;}
+.job-tag{position:absolute;bottom:12px;left:12px;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;background:var(--accent);color:#fff;padding:5px 10px;font-weight:500;}
+.job-status{position:absolute;top:12px;right:12px;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;background:rgba(0,0,0,0.5);color:#6adb8a;padding:4px 8px;border:1px solid rgba(106,219,138,0.3);}
+
+/* BOOKING */
+#booking{padding:88px 5vw;background:var(--cream);}
+.booking-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;max-width:980px;}
+.booking-h2{font-family:var(--font-head);font-size:clamp(34px,4vw,52px);letter-spacing:0.03em;line-height:1;margin-bottom:14px;}
+.booking-sub{font-size:15px;color:var(--ink-soft);line-height:1.75;font-weight:300;max-width:38ch;margin-bottom:28px;}
+.confirm-btn{width:100%;padding:15px;background:transparent;border:2px solid var(--accent);color:var(--accent);font-family:var(--font-head);font-size:18px;letter-spacing:0.07em;cursor:pointer;transition:background .2s,color .2s;}
+.confirm-btn.ready,.confirm-btn:hover{background:var(--accent);color:#fff;}
+.slot-text{font-size:12px;color:var(--muted);margin-top:10px;letter-spacing:0.04em;min-height:18px;}
+.cal{background:var(--white);border:1.5px solid var(--border);padding:24px;}
+.cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.cal-month{font-family:var(--font-head);font-size:22px;letter-spacing:0.05em;}
+.cal-nav-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:5px 10px;cursor:pointer;font-size:13px;transition:border-color .15s,color .15s;}
+.cal-nav-btn:hover{border-color:var(--accent);color:var(--accent);}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+.cal-cell{aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);}
+.cal-cell.hdr{font-size:10px;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;}
+.cal-cell.open{background:var(--cream2);color:var(--ink);cursor:pointer;transition:background .15s;}
+.cal-cell.open:hover{background:var(--accent-dim);color:var(--charcoal);}
+.cal-cell.selected{background:var(--accent);color:#fff;font-weight:600;}
+
+/* FOOTER */
+footer{background:var(--charcoal);border-top:3px solid var(--accent);padding:36px 5vw;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;align-items:center;}
+.footer-col strong{display:block;color:#fff;font-size:14px;margin-bottom:6px;font-weight:600;}
+.footer-col span{font-size:13px;color:#6a7a8a;}
+.demo-note-footer{font-size:11px;color:#4a5a6a;letter-spacing:0.06em;border:1px solid #2a3440;padding:8px 14px;}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .hero-inner{grid-template-columns:1fr;}
+  .estimate-card{box-shadow:none;}
+  .steps{grid-template-columns:1fr;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .booking-inner{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .brand-addr{display:none;}
+  .brand-name{font-size:16px;}
+  .call-btn{font-size:13px;padding:9px 14px;}
+  nav{padding:12px 4vw;}
+  #hero{padding:36px 4vw 0;}
+  .hero-h1{font-size:clamp(42px,11vw,58px);}
+  .hero-sub{font-size:15px;}
+  .trust-row{gap:20px;}
+  .trust-num{font-size:28px;}
+  .estimate-card{padding:22px 18px;}
+  .chip{font-size:12px;padding:8px 12px;}
+  .result-range{font-size:36px;}
+  #how,#gallery,#booking{padding:60px 4vw;}
+  .section-h2{font-size:clamp(30px,9vw,44px);}
+  .step{padding:26px 20px;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+  .booking-h2{font-size:clamp(30px,9vw,44px);}
+  .cal{padding:18px;}
+  footer{flex-direction:column;align-items:flex-start;gap:14px;padding:28px 4vw;}
+}
+</style>
+<!-- Vercel Web Analytics. Each demo has its own URL and that URL went to exactly
+     one prospect, so a pageview is proof that a named business opened the email
+     and clicked through. Without this, silence is unreadable. -->
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-dot"></div>
+  <div class="loader-dot"></div>
+  <div class="loader-dot"></div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="brand">
+    <div class="brand-icon"></div>
+    <div>
+      <div class="brand-name" id="nav-name">—</div>
+      <div class="brand-addr" id="nav-addr">—</div>
+    </div>
+  </div>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <span class="demo-badge">Pitch Demo</span>
+    <a class="call-btn" id="nav-call" href="#">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M12.5 9.8c-.4-.4-1.7-1.1-2.3-1.1-.3 0-.5.1-1 .6-.2.2-.4.4-.6.4-.3 0-.8-.3-1.6-1.1C6.2 7.8 5.9 7.3 5.9 7c0-.2.2-.4.4-.6.5-.5.6-.7.6-1 0-.6-.7-1.9-1.1-2.3C5.4 2.7 5 2.5 4.7 2.5c-.7 0-2.2 2-2.2 2.3 0 1.4 1 3.8 2.8 5.5 1.7 1.8 4.1 2.8 5.5 2.8.3 0 2.3-1.5 2.3-2.2 0-.3-.2-.7-.6-1.1z" stroke="white" stroke-width="1" fill="none"/></svg>
+      <span id="nav-call-text">Call Now</span>
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow" id="hero-eyebrow">Instant estimate tool</div>
+      <h1 class="hero-h1" id="hero-h1"><em>Get a real price</em><br>before you call anyone.</h1>
+      <p class="hero-sub" id="hero-sub">Answer a few quick questions and get an honest estimate in under 60 seconds — no call required.</p>
+      <div class="trust-row" id="trust-row"></div>
+    </div>
+    <div class="estimate-card">
+      <div class="card-head">
+        <span class="card-title" id="card-title">Estimate</span>
+        <span class="card-id" id="card-id">TICKET #001</span>
+      </div>
+      <div class="field">
+        <div class="field-label" id="job-label">What's the job?</div>
+        <div class="chip-row" id="jobType"></div>
+      </div>
+      <div class="field">
+        <div class="field-label" id="size-label">Property size</div>
+        <div class="chip-row" id="propSize"></div>
+      </div>
+      <div class="field">
+        <div class="field-label">How urgent?</div>
+        <input type="range" id="urgency" min="1" max="10" value="4">
+        <div class="range-labels">
+          <span id="urgency-low">Can wait</span>
+          <span id="urgency-high">Emergency</span>
+        </div>
+      </div>
+      <div class="breakdown">
+        <div class="b-row"><span>Base assessment</span><span id="lineBase">—</span></div>
+        <div class="b-row"><span>Size adjustment</span><span id="lineSize">—</span></div>
+        <div class="b-row"><span>Urgency factor</span><span id="lineUrgency">—</span></div>
+      </div>
+      <div class="result-box">
+        <div class="result-range" id="estimateRange">—</div>
+        <div class="result-label" id="result-label">Estimated range · Final quote confirmed on arrival</div>
+      </div>
+      <button class="book-btn" id="book-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">
+        Book Now →
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-label reveal">How it works</div>
+  <div class="section-h2 reveal" id="how-h2">No phone tag. Just a booked job.</div>
+  <div class="steps" id="steps-grid"></div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-label reveal">Recent work</div>
+  <div class="section-h2 reveal" id="gallery-h2">Jobs we've completed.</div>
+  <div class="gallery-grid" id="gallery-grid"></div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking">
+  <div class="section-label reveal">Book a visit</div>
+  <div class="booking-inner">
+    <div>
+      <div class="booking-h2 reveal" id="booking-h2">Pick a time.<br>We'll be there.</div>
+      <p class="booking-sub reveal" id="booking-sub">Select an open slot. You're confirmed instantly — no callback needed.</p>
+      <button class="confirm-btn reveal" id="confirmBtn">Select a time slot →</button>
+      <div class="slot-text" id="slotText"></div>
+    </div>
+    <div class="cal reveal">
+      <div class="cal-head">
+        <span class="cal-month" id="cal-month">August 2026</span>
+        <div style="display:flex;gap:6px;">
+          <button class="cal-nav-btn">‹</button>
+          <button class="cal-nav-btn">›</button>
+        </div>
+      </div>
+      <div class="cal-grid" id="calGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-col">
+    <strong id="footer-name">—</strong>
+    <span id="footer-addr">—</span>
+  </div>
+  <div class="footer-col">
+    <strong>Contact</strong>
+    <span id="footer-contact">—</span>
+  </div>
+  <div class="demo-note-footer">Pitch demo — built by <a href="https://benchworklabs.com" style="color:var(--accent);text-decoration:none;">BenchWork Labs</a></div>
+</footer>
+
+<script>
+// ─── Load config and boot ──────────────────────────────────────────────────
+const basePath = location.pathname.endsWith('/') ? location.pathname : location.pathname + '/';
+
+// ─── Funnel tracking ───────────────────────────────────────────────────────
+// Fires at most once per event per pageview: calc() runs on every slider tick,
+// and we want "this prospect priced a job", not a count of slider movements.
+const DEMO_SLUG = basePath.split('/').filter(Boolean).pop() || 'unknown';
+const _fired = new Set();
+function track(name, data){
+  if (_fired.has(name)) return;
+  _fired.add(name);
+  try { window.va('event', { name: name, data: Object.assign({ demo: DEMO_SLUG }, data || {}) }); } catch (e) {}
+}
+// Distinguishes "opened and closed instantly" from "actually read it".
+setTimeout(function(){ if (document.visibilityState === 'visible') track('dwell_15s'); }, 15000);
+fetch(basePath + 'client.json')
+  .then(r => r.json())
+  .then(c => boot(c))
+  .catch(() => {
+    document.getElementById('loader').innerHTML = '<p style="color:#fff;font-family:sans-serif">client.json not found</p>';
+  });
+
+function boot(c){
+  // Apply accent colour
+  const accent = c.accentColor || '#c07a3a';
+  const accentBright = c.accentColorBright || lighten(accent, 15);
+  document.documentElement.style.setProperty('--accent', accent);
+  document.documentElement.style.setProperty('--accent-bright', accentBright);
+
+  // Page title
+  document.title = c.businessName + ' — Instant Estimate & Booking';
+
+  // Nav
+  document.getElementById('nav-name').textContent = c.businessName;
+  document.getElementById('nav-addr').textContent = c.address;
+  document.getElementById('nav-call').href = 'tel:' + c.phone.replace(/\D/g,'');
+  document.getElementById('nav-call-text').textContent = 'Call ' + c.phone;
+
+  // Hero
+  document.getElementById('hero-eyebrow').textContent = c.tradeLabel || 'Instant estimate tool';
+  document.getElementById('hero-h1').innerHTML = c.heroHeadline || '<em>Get a real price</em><br>before you call anyone.';
+  document.getElementById('hero-sub').textContent = c.heroSub || '';
+
+  // Trust stats
+  const trustRow = document.getElementById('trust-row');
+  (c.trustStats || []).forEach(s => {
+    trustRow.innerHTML += `<div>
+      <div class="trust-num">${s.value}<em>${s.suffix||''}</em></div>
+      <div class="trust-label">${s.label}</div>
+    </div>`;
+  });
+
+  // Card header
+  document.getElementById('card-title').textContent = c.cardTitle || 'Job Estimate';
+  document.getElementById('card-id').textContent = c.ticketPrefix || 'TICKET #001';
+  document.getElementById('job-label').textContent = c.jobLabel || "What's the job?";
+  document.getElementById('size-label').textContent = c.sizeLabel || 'Property size';
+  document.getElementById('urgency-low').textContent = (c.urgencyLabels||['Can wait','Emergency now'])[0];
+  document.getElementById('urgency-high').textContent = (c.urgencyLabels||['Can wait','Emergency now'])[1];
+  document.getElementById('book-btn').textContent = (c.bookBtnLabel || 'Book a Visit') + ' →';
+  document.getElementById('result-label').textContent = c.resultLabel || 'Estimated range · Final quote confirmed on arrival';
+
+  // Job type chips
+  const jobRow = document.getElementById('jobType');
+  c.jobTypes.forEach((j,i) => {
+    const b = document.createElement('button');
+    b.className = 'chip' + (i===0?' active':'');
+    b.dataset.base = j.base;
+    b.textContent = j.label;
+    b.addEventListener('click', () => { setActive(jobRow.querySelectorAll('.chip'), b); track('quote_priced'); calc(); });
+    jobRow.appendChild(b);
+  });
+
+  // Size chips
+  const sizeRow = document.getElementById('propSize');
+  c.sizeOptions.forEach((s,i) => {
+    const b = document.createElement('button');
+    b.className = 'chip' + (i===0?' active':'');
+    b.dataset.mult = s.mult;
+    b.textContent = s.label;
+    b.addEventListener('click', () => { setActive(sizeRow.querySelectorAll('.chip'), b); track('quote_priced'); calc(); });
+    sizeRow.appendChild(b);
+  });
+
+  document.getElementById('urgency').addEventListener('input', () => { track('quote_priced'); calc(); });
+  calc();
+
+  // How it works
+  document.getElementById('how-h2').innerHTML = c.howHeadline || 'No phone tag. Just a booked job.';
+  const stepsGrid = document.getElementById('steps-grid');
+  (c.steps || defaultSteps(c)).forEach((s,i) => {
+    stepsGrid.innerHTML += `<div class="step reveal">
+      <div class="step-num">0${i+1} — ${s.tag.toUpperCase()}</div>
+      <div class="step-title">${s.title}</div>
+      <div class="step-desc">${s.desc}</div>
+    </div>`;
+  });
+
+  // Gallery
+  document.getElementById('gallery-h2').textContent = c.galleryHeadline || 'Jobs we\'ve completed.';
+  const galleryGrid = document.getElementById('gallery-grid');
+  const galleryColors = ['#3a4a5c','#5c3a20','#1e4a3a','#3a2a4a'];
+  (c.galleryItems || []).forEach((item, i) => {
+    galleryGrid.innerHTML += `<div class="job-card reveal">
+      <div class="job-card-bg" style="background:linear-gradient(160deg,${galleryColors[i%galleryColors.length]},${galleryColors[(i+2)%galleryColors.length]});"></div>
+      <span class="job-tag">${item.tag}</span>
+      <span class="job-status">Completed</span>
+    </div>`;
+  });
+
+  // Booking
+  document.getElementById('booking-h2').innerHTML = c.bookingHeadline || 'Pick a time.<br>We\'ll be there.';
+  document.getElementById('booking-sub').textContent = c.bookingSub || 'Select an open slot. You\'re confirmed instantly — no callback needed.';
+  document.getElementById('cal-month').textContent = c.calMonth || 'August 2026';
+
+  // Calendar
+  buildCalendar(c.openDays || [3,4,7,8,10,11,14,17,18,21,24,25,28], c.calStartOffset || 6, c.calDays || 31, c.calMonth || 'August 2026');
+
+  // Footer
+  document.getElementById('footer-name').textContent = c.businessName;
+  document.getElementById('footer-addr').textContent = c.address;
+  document.getElementById('footer-contact').textContent = c.phone + ' · ' + (c.availability || '');
+
+  // Hide loader
+  setTimeout(() => document.getElementById('loader').classList.add('hidden'), 300);
+
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+}
+
+// ─── Estimate calc ─────────────────────────────────────────────────────────
+function calc(){
+  const base = parseFloat(document.querySelector('#jobType .chip.active')?.dataset.base || 0);
+  const mult = parseFloat(document.querySelector('#propSize .chip.active')?.dataset.mult || 1);
+  const sev  = parseFloat(document.getElementById('urgency').value);
+  const uf   = 0.7 + (sev/10)*0.9;
+  const mid  = base * mult * uf;
+  const low  = Math.round(mid*0.82/10)*10;
+  const high = Math.round(mid*1.18/10)*10;
+
+  const el = document.getElementById('estimateRange');
+  el.style.opacity='0'; el.style.transform='translateY(6px)';
+  setTimeout(() => {
+    document.getElementById('lineBase').textContent    = '$' + base.toLocaleString();
+    document.getElementById('lineSize').textContent    = '×' + mult;
+    document.getElementById('lineUrgency').textContent = '×' + uf.toFixed(2);
+    el.textContent = '$' + low.toLocaleString() + ' – $' + high.toLocaleString();
+    el.style.transition = 'opacity .3s,transform .3s';
+    el.style.opacity='1'; el.style.transform='none';
+  }, 140);
+}
+
+function setActive(chips, target){
+  chips.forEach(c => c.classList.remove('active'));
+  target.classList.add('active');
+}
+
+// ─── Calendar ──────────────────────────────────────────────────────────────
+function buildCalendar(openDays, startOffset, totalDays, monthLabel){
+  const grid = document.getElementById('calGrid');
+  ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(d => {
+    const el = document.createElement('div');
+    el.className = 'cal-cell hdr'; el.textContent = d; grid.appendChild(el);
+  });
+  for(let i=0;i<startOffset;i++){
+    const el=document.createElement('div'); el.className='cal-cell'; grid.appendChild(el);
+  }
+  for(let i=1;i<=totalDays;i++){
+    const el=document.createElement('div');
+    const isOpen=openDays.includes(i);
+    el.className='cal-cell'+(isOpen?' open':'');
+    el.textContent=i;
+    if(isOpen){
+      el.addEventListener('click',()=>{
+        document.querySelectorAll('.cal-cell.selected').forEach(s=>s.classList.remove('selected'));
+        el.classList.add('selected');
+        const label = monthLabel.split(' ')[0]+' '+i+', '+monthLabel.split(' ')[1]+' · 10:00 AM';
+        document.getElementById('slotText').textContent='Selected: '+label;
+        const btn=document.getElementById('confirmBtn');
+        btn.textContent='Confirm '+label+' →';
+        btn.classList.add('ready');
+        track('slot_selected');
+        btn.onclick = function(){ track('booking_confirmed'); };
+      });
+    }
+    grid.appendChild(el);
+  }
+}
+
+// ─── Default steps fallback ────────────────────────────────────────────────
+function defaultSteps(c){
+  const trade = c.trade || 'job';
+  return [
+    {tag:'Describe', title:'Tell us what you need', desc:'Pick your '+trade+' type, property size, and urgency. No account needed, works on any phone.'},
+    {tag:'Estimate', title:'Get a real price range', desc:'An honest range based on '+c.businessName+'\'s pricing — not a lead-gen teaser. Know what to expect before anyone shows up.'},
+    {tag:'Book',     title:'Pick a time, we\'ll be there', desc:'Choose a slot from the calendar and you\'re confirmed. You\'ll get a text reminder — no callbacks, no waiting on hold.'}
+  ];
+}
+
+// ─── Colour helper ─────────────────────────────────────────────────────────
+function lighten(hex, pct){
+  const n=parseInt(hex.replace('#',''),16);
+  const r=Math.min(255,(n>>16)+Math.round(2.55*pct));
+  const g=Math.min(255,((n>>8)&0xff)+Math.round(2.55*pct));
+  const b=Math.min(255,(n&0xff)+Math.round(2.55*pct));
+  return '#'+[r,g,b].map(x=>x.toString(16).padStart(2,'0')).join('');
+}
+</script>
+</body>
+</html>

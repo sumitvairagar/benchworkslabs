@@ -1,0 +1,53 @@
+{
+  "businessName": "Classic Electric Co",
+  "trade": "electrical",
+  "tradeLabel": "Instant electrical estimate",
+  "phone": "(210) 843-8396",
+  "email": "admin@classicelectricco.com",
+  "address": "722 Coronet St, San Antonio, TX 78216",
+  "availability": "Family-run · Licensed Master Electrician #27879",
+  "accentColor": "#8b6914",
+  "heroHeadline": "Know what it costs<br>before you <em>call anyone</em>.",
+  "heroSub": "Tell us what you need done — an EV charger, a panel that's out of room, a light that won't come on — and get an honest cost range in under 60 seconds.",
+  "trustStats": [
+    { "value": "174", "suffix": "", "label": "Google reviews" },
+    { "value": "4.9", "suffix": "★", "label": "Average rating" },
+    { "value": "17", "suffix": "+", "label": "Years in San Antonio" }
+  ],
+  "cardTitle": "Electrical Estimate",
+  "ticketPrefix": "TICKET #E-4172",
+  "jobLabel": "What do you need done?",
+  "sizeLabel": "Home size (approx.)",
+  "bookBtnLabel": "Book an Electrician",
+  "resultLabel": "Estimated cost range · Final price confirmed on site before work starts",
+  "urgencyLabels": ["Can wait a few days", "No power — today"],
+  "jobTypes": [
+    { "label": "Lighting Install & Outlet Repair", "base": 420 },
+    { "label": "EV Charger Installation", "base": 1350 },
+    { "label": "Panel Upgrade & Service Rewire", "base": 3200 }
+  ],
+  "sizeOptions": [
+    { "label": "Condo / Under 1,200 sq ft", "mult": 0.75 },
+    { "label": "1,200–2,400 sq ft", "mult": 1 },
+    { "label": "Over 2,400 sq ft", "mult": 1.5 }
+  ],
+  "howHeadline": "A real number before the truck rolls.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what you need done", "desc": "A Level 2 charger for the new car, a panel with no space left, recessed lighting, or an outlet that quit — pick the job, your home size, and how soon you need it. Under a minute, no sign-up, works on any phone." },
+    { "tag": "Estimate", "title": "See a real cost range", "desc": "An honest range built on Classic Electric's own pricing, including the dedicated circuit an EV charger actually needs and the permit a panel upgrade actually requires. No teaser number that changes when we arrive." },
+    { "tag": "Book", "title": "Pick your install window", "desc": "Choose a time from real availability and a licensed master electrician shows up, confirms the scope, and gives you the final price before any work starts." }
+  ],
+  "galleryHeadline": "Recent electrical work across San Antonio.",
+  "galleryItems": [
+    { "tag": "EV charger" },
+    { "tag": "Panel upgrade" },
+    { "tag": "Lighting install" },
+    { "tag": "Service rewire" }
+  ],
+  "bookingHeadline": "Pick a time.<br>We'll be out.",
+  "bookingSub": "Real availability from the schedule — choose a window and you're confirmed. No callback, no waiting a day to hear back.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [3, 4, 8, 9, 11, 15, 16, 18, 19, 22, 24, 25, 29, 30]
+}

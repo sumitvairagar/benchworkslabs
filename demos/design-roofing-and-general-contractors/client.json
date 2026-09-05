@@ -1,0 +1,53 @@
+{
+  "businessName": "Design Roofing & General Contractors",
+  "trade": "roofing",
+  "tradeLabel": "Instant roofing estimate",
+  "phone": "(210) 744-7500",
+  "email": "Info@DesignRoofing.com",
+  "address": "12227 Huebner Rd Ste 107, San Antonio, TX 78230",
+  "availability": "Mon–Fri 8AM–5PM · Storm response after hours",
+  "accentColor": "#2d6a9f",
+  "heroHeadline": "Know what the storm <em>actually cost you</em><br>before anyone gets on your roof.",
+  "heroSub": "Describe the damage and get an honest repair-or-replace range in under 60 seconds — no callback, no sales visit, no waiting until morning.",
+  "trustStats": [
+    { "value": "152", "suffix": "", "label": "Google reviews" },
+    { "value": "4.9", "suffix": "★", "label": "Average rating" },
+    { "value": "Vet", "suffix": "-owned", "label": "San Antonio built" }
+  ],
+  "cardTitle": "Roof Estimate",
+  "ticketPrefix": "TICKET #R-1227",
+  "jobLabel": "What's the damage?",
+  "sizeLabel": "Roof size (approx.)",
+  "bookBtnLabel": "Book a Free Roof Inspection",
+  "resultLabel": "Estimated cost range · Written scope confirmed after on-site inspection",
+  "urgencyLabels": ["Can wait a few weeks", "Urgent — water coming in"],
+  "jobTypes": [
+    { "label": "Leak / Shingle Repair", "base": 950 },
+    { "label": "Hail & Wind Damage", "base": 3600 },
+    { "label": "Full Roof Replacement", "base": 10500 }
+  ],
+  "sizeOptions": [
+    { "label": "Under 1,500 sq ft", "mult": 0.75 },
+    { "label": "1,500–2,500 sq ft", "mult": 1 },
+    { "label": "Over 2,500 sq ft", "mult": 1.5 }
+  ],
+  "howHeadline": "A real number before<br>the first ladder goes up.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what the roof is doing", "desc": "Pick the damage type, your roof size, and how urgent it is. Takes under a minute — no account, no sign-up, works on any phone." },
+    { "tag": "Estimate", "title": "See repair vs. replacement", "desc": "An honest range built on Design Roofing's own pricing — patch it when a patch will hold, replace it when it won't. Same answer we'd give you on the roof." },
+    { "tag": "Book", "title": "Get a free inspection on the calendar", "desc": "Pick a slot and a Design Roofing crew leader comes out, documents the damage in writing, and gives you a firm scope and price. No obligation." }
+  ],
+  "galleryHeadline": "San Antonio exteriors we've rebuilt.",
+  "galleryItems": [
+    { "tag": "Hail damage" },
+    { "tag": "Full re-roof" },
+    { "tag": "Siding & gutters" },
+    { "tag": "Commercial flat" }
+  ],
+  "bookingHeadline": "Book a free<br>roof inspection.",
+  "bookingSub": "Pick a slot and we'll come out, get up on the roof, document what's actually damaged, and hand you a written scope — no obligation, no pressure.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [3, 4, 8, 10, 11, 14, 16, 17, 19, 22, 24, 25, 29, 30]
+}

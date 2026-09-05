@@ -1,0 +1,53 @@
+{
+  "businessName": "Firefly Electric Service",
+  "trade": "electrical",
+  "tradeLabel": "Instant electrical estimate",
+  "phone": "(210) 232-0437",
+  "email": "salvitore@fireflyelectricservice.com",
+  "address": "8034 Culebra Rd Ste 106, San Antonio TX 78251",
+  "availability": "Licensed & insured · Certified electricians",
+  "accentColor": "#8b6914",
+  "heroHeadline": "Get a <em>real price</em><br>before you book an electrician.",
+  "heroSub": "Tell us the job, your property size and how urgent it is — you'll have an honest range in under a minute, without waiting on a callback.",
+  "trustStats": [
+    { "value": "165", "suffix": "", "label": "Google reviews" },
+    { "value": "4.8", "suffix": "★", "label": "Average rating" },
+    { "value": "Licensed", "suffix": "", "label": "& insured" }
+  ],
+  "cardTitle": "Electrical Estimate",
+  "ticketPrefix": "TICKET #E-5518",
+  "jobLabel": "What do you need done?",
+  "sizeLabel": "Property size",
+  "bookBtnLabel": "Book an Electrician",
+  "resultLabel": "Estimated range · Final quote confirmed on site",
+  "urgencyLabels": ["Can wait", "No power — today"],
+  "jobTypes": [
+    { "label": "Outlet, Switch & Circuit Repair", "base": 340 },
+    { "label": "EV Charger or Panel Install", "base": 1650 },
+    { "label": "Generator or Whole-Home Rewire", "base": 8500 }
+  ],
+  "sizeOptions": [
+    { "label": "Under 1,500 sq ft", "mult": 0.75 },
+    { "label": "1,500–2,500 sq ft", "mult": 1 },
+    { "label": "Over 2,500 sq ft", "mult": 1.5 }
+  ],
+  "howHeadline": "A real number before anyone books a van.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us the job", "desc": "Pick the work — a repair, an EV charger or panel install, a generator or a rewire — plus your property size and urgency. Under a minute, no sign-up, works on any phone." },
+    { "tag": "Estimate", "title": "See an honest range", "desc": "A genuine range built on Firefly Electric's own pricing, not a national average. Small jobs stay small — you won't get quoted a rewire for a dead outlet." },
+    { "tag": "Book", "title": "Pick your install window", "desc": "Choose a slot and a licensed Firefly electrician confirms the scope on site and gives you a final written price before any work starts." }
+  ],
+  "galleryHeadline": "Recent electrical work across San Antonio.",
+  "galleryItems": [
+    { "tag": "EV charger" },
+    { "tag": "Panel upgrade" },
+    { "tag": "Standby generator" },
+    { "tag": "Home rewire" }
+  ],
+  "bookingHeadline": "Pick a time.<br>We'll be there.",
+  "bookingSub": "Choose an open slot and a licensed Firefly electrician will confirm the scope on site and give you a written price — no obligation.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [2, 3, 4, 9, 10, 12, 14, 17, 18, 21, 23, 24, 28, 30]
+}

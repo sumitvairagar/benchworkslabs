@@ -1,0 +1,53 @@
+{
+  "businessName": "Highland AC Sales and Service",
+  "trade": "hvac",
+  "tradeLabel": "Instant AC estimate & booking",
+  "phone": "(210) 876-2665",
+  "email": "sales@highlandac.com",
+  "address": "Texas · Lic. TACLB00129236E",
+  "availability": "In business since 1976",
+  "accentColor": "#1a6b3c",
+  "heroHeadline": "Know what the AC will cost<br><em>before you call anyone</em>.",
+  "heroSub": "Tell us what your system is doing, see an honest service-or-replace range in under 60 seconds, then pick your own time slot — no callback request, no waiting to hear back.",
+  "trustStats": [
+    { "value": "1976", "suffix": "", "label": "In business since" },
+    { "value": "Carrier", "suffix": "", "label": "Systems sold & installed" },
+    { "value": "Licensed", "suffix": "", "label": "TACLB00129236E" }
+  ],
+  "cardTitle": "AC Estimate",
+  "ticketPrefix": "TICKET #H-1976",
+  "jobLabel": "What do you need?",
+  "sizeLabel": "Home size (approx.)",
+  "bookBtnLabel": "Book a Service Call",
+  "resultLabel": "Estimated cost range · Final price confirmed on site before any work starts",
+  "urgencyLabels": ["Planning ahead", "No cooling right now"],
+  "jobTypes": [
+    { "label": "AC Service & Repair", "base": 375 },
+    { "label": "Coil / Air Handler Replace", "base": 2200 },
+    { "label": "Carrier System Replacement", "base": 9200 }
+  ],
+  "sizeOptions": [
+    { "label": "Condo / Under 1,200 sq ft", "mult": 0.75 },
+    { "label": "1,200–2,400 sq ft", "mult": 1 },
+    { "label": "Over 2,400 sq ft", "mult": 1.5 }
+  ],
+  "howHeadline": "A real number and a real time slot, before anyone waits on a callback.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what it's doing", "desc": "Blowing warm, tripping the breaker, running all day, or a system that's simply old enough to replace — pick it, add your home size, and say how soon you need someone. Under a minute, no sign-up, works on any phone." },
+    { "tag": "Estimate", "title": "See service vs replace", "desc": "An honest range built on Highland's own pricing — a service call when a service call is the right answer, a new Carrier system when the old one has genuinely run its course. Not a teaser number to get a truck in the driveway." },
+    { "tag": "Book", "title": "Pick your service window", "desc": "Choose a slot from the real schedule and it's confirmed on the spot. A licensed tech comes out, confirms the diagnosis, and gives you the final price before any work starts." }
+  ],
+  "galleryHeadline": "Recent AC replacements and service calls.",
+  "galleryItems": [
+    { "tag": "AC service" },
+    { "tag": "Carrier install" },
+    { "tag": "Air handler" },
+    { "tag": "System replace" }
+  ],
+  "bookingHeadline": "Pick a window.<br>You're booked.",
+  "bookingSub": "Real availability straight from the schedule — choose a time and it's confirmed. No callback request, no wondering whether the message got through.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [8, 9, 10, 14, 16, 17, 19, 21, 22, 24, 25, 28, 29]
+}

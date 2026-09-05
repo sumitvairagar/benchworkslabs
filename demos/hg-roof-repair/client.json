@@ -1,0 +1,53 @@
+{
+  "businessName": "HG Roof Repair",
+  "trade": "roofing",
+  "tradeLabel": "Instant roof repair estimate",
+  "phone": "(210) 396-0922",
+  "email": "hugoroofer8888@gmail.com",
+  "address": "345 N San Gabriel Ave, San Antonio, TX 78237",
+  "availability": "Serving San Antonio & surrounding areas",
+  "accentColor": "#2d6a9f",
+  "heroHeadline": "Know what the <em>repair</em> costs<br>before anyone gets on your roof.",
+  "heroSub": "HG has been repairing San Antonio roofs since 2000 — pick what's wrong, get an honest repair range in under 60 seconds, no callback required.",
+  "trustStats": [
+    { "value": "25", "suffix": "+", "label": "Years in San Antonio" },
+    { "value": "A+", "suffix": "", "label": "BBB rated" },
+    { "value": "Google", "suffix": "", "label": "Guaranteed roofer" }
+  ],
+  "cardTitle": "Roof Repair Estimate",
+  "ticketPrefix": "TICKET #R-2000",
+  "jobLabel": "What's wrong with the roof?",
+  "sizeLabel": "Roof size (approx.)",
+  "bookBtnLabel": "Book a Repair Visit",
+  "resultLabel": "Estimated repair range · Written quote confirmed after we're on the roof",
+  "urgencyLabels": ["Can wait a few weeks", "Urgent — water coming in"],
+  "jobTypes": [
+    { "label": "Leak Repair", "base": 950 },
+    { "label": "Broken Tile / Missing Shingles", "base": 1800 },
+    { "label": "Storm Damage Repair", "base": 3000 }
+  ],
+  "sizeOptions": [
+    { "label": "Under 1,500 sq ft", "mult": 0.75 },
+    { "label": "1,500–2,500 sq ft", "mult": 1 },
+    { "label": "Over 2,500 sq ft", "mult": 1.5 }
+  ],
+  "howHeadline": "A real repair price before the truck rolls out.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us where the water's coming in", "desc": "Pick the problem — leak, broken tile, missing shingles, storm damage — your roof size, and how urgent it is. Under a minute, no account, works on any phone." },
+    { "tag": "Estimate", "title": "Get an honest repair range", "desc": "A real range based on HG's own repair pricing. Repair work, priced like repair work — no one arrives trying to sell you a whole new roof." },
+    { "tag": "Book", "title": "Pick a slot for the repair visit", "desc": "Choose a day that works and an HG roofer comes out, finds the source, and hands you a written repair quote before any work starts." }
+  ],
+  "galleryHeadline": "San Antonio roofs we've patched, sealed and put back together.",
+  "galleryItems": [
+    { "tag": "Leak repair" },
+    { "tag": "Broken tile" },
+    { "tag": "Missing shingles" },
+    { "tag": "Storm damage" }
+  ],
+  "bookingHeadline": "Book a roof<br>repair visit.",
+  "bookingSub": "Pick a slot and an HG roofer will come out, track down where the water is getting in, and give you a written repair quote before anything starts.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [8, 9, 11, 12, 15, 16, 18, 21, 22, 24, 25, 29, 30]
+}

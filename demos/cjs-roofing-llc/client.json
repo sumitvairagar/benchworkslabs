@@ -1,0 +1,53 @@
+{
+  "businessName": "CJ's Roofing, LLC",
+  "trade": "roofing",
+  "tradeLabel": "Instant roofing estimate",
+  "phone": "(210) 201-3687",
+  "email": "cjsroofing.llc@gmail.com",
+  "address": "114 N Ellison Dr Ste 110, San Antonio, TX 78251",
+  "availability": "Serving San Antonio & surrounding areas",
+  "accentColor": "#2d6a9f",
+  "heroHeadline": "Know what the <em>storm damage</em> costs<br>before anyone gets on your roof.",
+  "heroSub": "Describe what the wind or hail did, get an honest repair-or-replace range in under 60 seconds — no callback, no sales visit first.",
+  "trustStats": [
+    { "value": "20", "suffix": "+", "label": "Years roofing experience" },
+    { "value": "2,000", "suffix": "+", "label": "Roofs & repairs completed" },
+    { "value": "GAF", "suffix": "", "label": "Certified · licensed & insured" }
+  ],
+  "cardTitle": "Roof Estimate",
+  "ticketPrefix": "TICKET #CJ-4218",
+  "jobLabel": "What happened to the roof?",
+  "sizeLabel": "Roof size (approx.)",
+  "bookBtnLabel": "Book a Free Roof Inspection",
+  "resultLabel": "Estimated cost range · Written quote confirmed after the on-site inspection",
+  "urgencyLabels": ["Can wait a few weeks", "Urgent — water coming in"],
+  "jobTypes": [
+    { "label": "Roof Repair / Leak", "base": 850 },
+    { "label": "Hail & Wind Damage", "base": 3400 },
+    { "label": "Full Roof Replacement", "base": 10500 }
+  ],
+  "sizeOptions": [
+    { "label": "Under 1,500 sq ft", "mult": 0.75 },
+    { "label": "1,500–2,500 sq ft", "mult": 1 },
+    { "label": "Over 2,500 sq ft", "mult": 1.5 }
+  ],
+  "howHeadline": "A real number before the adjuster, before the sales visit.",
+  "steps": [
+    { "tag": "Describe", "title": "Tell us what the storm did", "desc": "Pick the damage — a leak, hail and wind damage, or a roof that's past saving — then your roof size and how urgent it is. Under a minute, no account, works on any phone." },
+    { "tag": "Estimate", "title": "Get a repair-or-replace range", "desc": "A genuine range built on CJ's Roofing's own pricing, from a GAF-certified crew that's done over 2,000 roofs and repairs. Repair when repair makes sense — replace only when it doesn't." },
+    { "tag": "Book", "title": "Schedule the free inspection", "desc": "Pick a slot and a CJ's roofer comes out, documents the damage for your claim, and leaves you a written quote. No pressure, no obligation." }
+  ],
+  "galleryHeadline": "San Antonio roofs we've repaired and replaced.",
+  "galleryItems": [
+    { "tag": "Hail damage" },
+    { "tag": "Wind damage" },
+    { "tag": "Dimensional shingle" },
+    { "tag": "WPI-8 certified re-roof" }
+  ],
+  "bookingHeadline": "Book a free<br>roof inspection.",
+  "bookingSub": "Pick a slot and a CJ's Roofing crew will come out, assess the storm damage, and give you a written quote — no obligation, no pressure.",
+  "calMonth": "September 2026",
+  "calStartOffset": 2,
+  "calDays": 30,
+  "openDays": [8, 9, 11, 14, 16, 17, 19, 22, 23, 25, 28, 29, 30]
+}
